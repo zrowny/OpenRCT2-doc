@@ -1,22 +1,31 @@
 <blockquote>
 
+{% if not operator=="allOf" %}
 {{ current_node | md_array_items(title) | md_generate_table }}
+{% endif %}
 
 {% for node in current_node.array_items %}
 
+{{ "#" * [(depth + 1), 5]|min ~ " " -}}
+{% if node.is_pattern_property %}Pattern {% endif %}{% with schema=node %}{%- include "breadcrumbs.html" %}{% endwith %}
+
+{: .d-none }
+
 <details>
-<summary>
-    {% filter md_heading(depth+1, node.html_id, True) -%}
+<summary markdown='span'>
+    <strong>
         {% if node.is_pattern_property %}Pattern {% endif %}{% with schema=node %}{%- include "breadcrumbs.html" %}{% endwith %}
-    {%- endfilter %}
+    </strong>
 </summary>
-<blockquote>
-    {% with schema=node, skip_headers=False, depth=depth+1 %}
+
+{{"<blockquote>" if depth != 0 else ''}}
+    {% with schema=node, skip_headers=False, no_header=(operator=="allOf"), depth=depth+1 %}
         {% include "content.html" %}
     {% endwith %}
+{{"</blockquote>" if depth != 0 else ''}}
 
-</blockquote>
 </details>
+
 {% endfor %}
 
 </blockquote>

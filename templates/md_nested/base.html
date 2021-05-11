@@ -1,12 +1,19 @@
 {% set depth = 0 %}
-{{ schema.keywords.get("title").literal | default("Schema Docs") | md_heading(depth) }}
+# {{ schema.keywords.get("title").literal }}
 {% set contentBase %}
 {% with schema=schema, skip_headers=False, depth=depth %}
     {% include "content.html" %}
 {% endwith %}
 {% endset %}
+{: .no_toc }
 
-{{ md_get_toc() }}
+<details open>
+  <summary markdown='span'>
+    Table of contents
+  </summary>
+1. TOC
+{:toc}
+</details>
 
 {{ contentBase }}
 

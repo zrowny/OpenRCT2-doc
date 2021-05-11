@@ -1,0 +1,45 @@
+table {
+    min-width: revert;
+}
+.table-wrapper {
+    width: max-content;
+    margin-bottom: 0.5em;
+}
+p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+tbody tr:last-of-type td {
+    display: none;
+}
+th, td {
+    padding: 0.25em 0.5em;
+}
+div.highlighter-rouge {
+    padding: 0;
+}
+body {
+    line-height: revert;
+}
+.main-content {
+    line-height: revert;
+}
+.main-content blockquote {
+    margin-left: 0.2em;
+    margin-right: 0;
+    padding-left: 0.2em;
+    border-left: 0.2em solid $grey-lt-300;
+}
+// .main-content summary {
+//     width: max-content
+// }
+.d-none {
+    display: revert !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+}
+code {
+    font-size: 1em;
+}

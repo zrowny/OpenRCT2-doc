@@ -12,7 +12,7 @@
     {{- printArray(schema.kw_enum.array_items) -}}
 {%- elif schema.kw_contains is not none -%}
     {{- schema.property_name | md_escape_for_table -}}
-    {{- "[] contains " -}}
+    {{- "[] contains " if thenelse else "[] doesn't contain " -}}
     {{- printArray(schema.kw_contains.kw_enum.array_items) -}}
 {%- else -%}
     {{- schema.property_name | md_escape_for_table -}}

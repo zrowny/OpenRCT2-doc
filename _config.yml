@@ -1,3 +1,14 @@
-exclude: "templates"
-theme: jekyll-theme-minimal
-markdown: CommonMarkGhPages
+exclude: ["templates"]
+remote_theme: pmarsceill/just-the-docs
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+  toc_levels: 1..4
+
+
+title: OpenRCT2 Format Documentation
+
+# just-the-docs options
+search_enabled: false
+heading_anchors: false
+color_scheme: bettercolor

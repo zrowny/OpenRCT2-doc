@@ -50,10 +50,6 @@
 			"type": "string",
 			"enum": [ "ride", "footpath", "footpath_banner", "footpath_item", "scenery_small", "scenery_large", "scenery_wall", "scenery_group", "park_entrance", "water", "terrain_surface", "terrain_edge", "station", "music", "footpath_surface", "footpath_railings" ]
 		},
-		"properties": {
-			"description": "This object contains all the properties of the object",
-			"type": "object"
-		},
 		"images": {
 			"description": "The location of images for the object",
 			"type": "array",
@@ -143,6 +139,10 @@
 					"capacity": { "en-GB": "1 passenger per car" }
 				}
 			]
+		},
+		"properties": {
+			"description": "This object contains all the properties of the object",
+			"type": "object"
 		}
 	},
 	"required": [ "id", "authors", "objectType" ],

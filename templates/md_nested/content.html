@@ -35,7 +35,14 @@
         {% include "content.html" %}
     {% endwith %}
 {% else %}
-   
+
+    {# details of Properties, pattern properties, additional properties #}
+    {% if schema.type_name == "object" %}
+    {% with skip_required=False %}
+        {% include "section_properties_details.html" %}
+    {% endwith %}
+    {% endif %}
+
     {# Combining: allOf, anyOf, oneOf, not #}
     {% if schema.kw_all_of %}
         {% with operator="allOf", title="All of", current_node=schema.kw_all_of, skip_required=True %}
@@ -55,13 +62,6 @@
     {% if schema.kw_not %}
         {% include "section_not.html" %}
     {% endif %}
-    
-    {# details of Properties, pattern properties, additional properties #}
-    {% if schema.type_name == "object" %}
-    {% with skip_required=False %}
-        {% include "section_properties_details.html" %}
-    {% endwith %}
-    {% endif %}
 
     {# Enum and const #}
     {% if schema.kw_enum -%}
@@ -73,7 +73,7 @@
 
     {# Conditional subschema, or if-then-else section #}
     {% if schema.has_conditional %}
-        {% with skip_headers=False, depth=depth+1 %}
+        {% with skip_headers=no_header, depth=depth %}
             {% include "section_conditional_subschema.html" %}
         {% endwith %}
     {% endif %}
