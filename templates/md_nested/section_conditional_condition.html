@@ -1,0 +1,26 @@
+{%- macro printArray(a) -%}
+{{- '"' ~ a|join('", "', attribute='literal') ~ '"' -}}
+{%- endmacro -%}
+
+{%- if schema.kw_const is not none -%}
+    {{- schema.property_name | md_escape_for_table -}}
+    {{- " = " if thenelse else "  != " -}}
+    {{- schema.kw_const.literal | python_to_json -}}
+{%- elif schema.kw_enum is not none -%}
+    {{- schema.property_name | md_escape_for_table -}}
+    {{- " = " if thenelse else "  != " -}}
+    {{- printArray(schema.kw_enum.array_items) -}}
+{%- elif schema.kw_contains is not none -%}
+    {{- schema.property_name | md_escape_for_table -}}
+    {{- "[] contains " -}}
+    {{- printArray(schema.kw_contains.kw_enum.array_items) -}}
+{%- else -%}
+    {{- schema.property_name | md_escape_for_table -}}
+    {{- "." -}}
+    {%- set first_property = schema | get_first_property-%}
+    {%- if first_property is not none -%}
+        {%- with schema=first_property -%}
+            {% include "section_conditional_condition.html" %}
+        {%- endwith -%}
+    {%- endif -%}
+{%- endif -%}

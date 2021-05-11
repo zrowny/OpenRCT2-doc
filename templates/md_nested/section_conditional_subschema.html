@@ -1,0 +1,32 @@
+{% if schema.kw_if %}
+    {% set first_property =  schema.kw_if | get_first_property %}
+
+    {% if schema.kw_then %}
+        {%- filter md_heading(depth) -%}If (
+            {%- with schema=first_property, thenelse=True -%}
+                {%- include "section_conditional_condition.html" -%}
+            {%- endwith -%}
+        ){%- endfilter -%}
+        {% if schema.kw_else %}
+            {{- "\n<blockquote>\n" }}
+        {% endif %}
+        {% with schema=schema.kw_then, skip_headers=False, depth=depth %}
+            {% include "content.html" %}
+        {% endwith %}
+        {% if schema.kw_else %}
+            {{- "\n</blockquote>\n" }}
+        {% endif %}
+    {% endif %}
+    {% if schema.kw_else %}
+        {%- filter md_heading(depth) -%}Else (i.e. {{ " " }}
+            {%- with schema=first_property, thenelse=False -%}
+                {%- include "section_conditional_condition.html" -%}
+            {%- endwith -%}
+        ){%- endfilter -%}
+        {{- "\n<blockquote>\n" }}
+        {% with schema=schema.kw_else, skip_headers=False, depth=depth %}
+            {% include "content.html" %}
+        {% endwith %}
+        {{- "\n</blockquote>\n" }}
+    {% endif %}
+{% endif %}

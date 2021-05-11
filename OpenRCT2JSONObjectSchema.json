@@ -25,20 +25,22 @@
 			"examples": [ "1.0" ]
 		},
 		"originalId": {
-			"description": "Deprecated ish. Represents the original DAT header. The three sections are the flags, name, and checksum. This shouldn't be used for new (not converted) objects",
+			"description": "[Deprecated for new objects]. Represents the original DAT header. The three sections are the flags, name, and checksum. This shouldn't be used for new (not converted) objects",
 			"type": "string",
 			"examples": [ "00000000|RMCT2   |00003000", "0A188A80|4X4     |0DB8676C" ]
 		},
 		"sourceGame": {
 			"description": "The source(s) of the object. Either a single string or an array containing each source",
-			"type": [ "array", "string" ],
 			"anyOf": [
 				{
-					"enum": [ "rct1", "rct1aa", "rct1ll", "rct2", "rct2ww", "rct2tt", "official", "custom" ]
+					"title": "Source String",
+					"$ref": "#/definitions/sourceString"
 				},
 				{
+					"title": "Array of Source Strings",
+					"type": "array",
 					"items": {
-						"enum": [ "rct1", "rct1aa", "rct1ll", "rct2", "rct2ww", "rct2tt", "official", "custom" ]
+						"$ref": "#/definitions/sourceString"
 					}
 				}
 			]
@@ -146,7 +148,7 @@
 	"required": [ "id", "authors", "objectType" ],
 	"allOf": [
 		{
-			"title": "Park Entrance",
+			"title": "If Park Entrance",
 			"if": {
 				"properties": {
 					"objectType": { "const": "park_entrance" }
@@ -165,7 +167,7 @@
 			}
 		},
 		{
-			"title": "Footpath",
+			"title": "If Footpath",
 			"if": {
 				"properties": {
 					"objectType": { "const": "footpath" }
@@ -188,7 +190,7 @@
 			}
 		},
 		{
-			"title": "Footpath Railings",
+			"title": "If Footpath Railings",
 			"if": {
 				"properties": {
 					"objectType": { "const": "footpath_railings" }
@@ -210,7 +212,7 @@
 			}
 		},
 		{
-			"title": "Footpath Surface",
+			"title": "If Footpath Surface",
 			"if": {
 				"properties": {
 					"objectType": { "const": "footpath_surface" }
@@ -229,7 +231,7 @@
 			}
 		},
 		{
-			"title": "Music",
+			"title": "If Music",
 			"if": {
 				"properties": {
 					"objectType": { "const": "music" }
@@ -249,7 +251,7 @@
 			}
 		},
 		{
-			"title": "Ride",
+			"title": "If Ride",
 			"if": {
 				"properties": {
 					"objectType": { "const": "ride" }
@@ -293,7 +295,7 @@
 					}
 				},
 				"then": {
-					"description": "Shop/Facility",
+					"description": "For a shop/facility",
 					"properties": {
 						"properties": {
 							"properties": {
@@ -329,7 +331,7 @@
 			}
 		},
 		{
-			"title": "Scenery Group",
+			"title": "If Scenery Group",
 			"if": {
 				"properties": {
 					"objectType": { "const": "scenery_group" }
@@ -344,7 +346,7 @@
 			}
 		},
 		{
-			"title": "Footpath Banner",
+			"title": "If Footpath Banner",
 			"if": {
 				"properties": {
 					"objectType": { "const": "footpath_banner" }
@@ -359,7 +361,7 @@
 			}
 		},
 		{
-			"title": "Footpath Item",
+			"title": "If Footpath Item",
 			"if": {
 				"properties": {
 					"objectType": { "const": "footpath_item" }
@@ -374,7 +376,7 @@
 			}
 		},
 		{
-			"title": "Large Scenery",
+			"title": "If Large Scenery",
 			"if": {
 				"properties": {
 					"objectType": { "const": "scenery_large" }
@@ -389,7 +391,7 @@
 			}
 		},
 		{
-			"title": "Small Scenery",
+			"title": "If Small Scenery",
 			"if": {
 				"properties": {
 					"objectType": { "const": "scenery_small" }
@@ -404,7 +406,7 @@
 			}
 		},
 		{
-			"title": "Wall",
+			"title": "If Wall",
 			"if": {
 				"properties": {
 					"objectType": { "const": "scenery_wall" }
@@ -419,7 +421,7 @@
 			}
 		},
 		{
-			"title": "Station",
+			"title": "If Station",
 			"if": {
 				"properties": {
 					"objectType": { "const": "station" }
@@ -434,7 +436,7 @@
 			}
 		},
 		{
-			"title": "Terrain Edge",
+			"title": "If Terrain Edge",
 			"if": {
 				"properties": {
 					"objectType": { "const": "terrain_edge" }
@@ -449,7 +451,7 @@
 			}
 		},
 		{
-			"title": "Terrain Surface",
+			"title": "If Terrain Surface",
 			"if": {
 				"properties": {
 					"objectType": { "const": "terrain_surface" }
@@ -464,7 +466,7 @@
 			}
 		},
 		{
-			"title": "Water",
+			"title": "If Water",
 			"if": {
 				"properties": {
 					"objectType": { "const": "water" }
@@ -480,6 +482,11 @@
 		}
 	],
 	"definitions": {
+		"sourceString": {
+			"title": "Source String",
+			"type": "string",
+			"enum": [ "rct1", "rct1aa", "rct1ll", "rct2", "rct2ww", "rct2tt", "official", "custom" ]
+		},
 		"colour": {
 			"description": "Object color",
 			"type": "string",
@@ -519,7 +526,7 @@
 			]
 		},
 		"type": {
-			"description": "Array of ride types of this object. Currently only the first 3 are used if there are more",
+			"description": "Array of ride types of this object. Currently only up to 3 are used",
 			"type": "array",
 			"items": [
 				{
@@ -619,7 +626,7 @@
 			"type": "integer"
 		},
 		"carColours": {
-			"description": "An array of preset color schemes for the ride. Currently, a ride can either have multiple presets (up to 254) with a single color scheme each (which are randomly chosen from when a ride is built), or it can have a single preset that has different color schemes for each train (car?). \nNote: If there is more than one preset, only the first color scheme in each preset is used.",
+			"description": "An array of preset color schemes for the ride. Currently, a ride can either have multiple presets (up to 254) with a single color scheme each (which are randomly chosen from when a ride is built), or it can have a single preset that has different color schemes for each train (car?).   \nNote: If there is more than one preset, only the first color scheme in each preset is used.",
 			"type": "array",
 			"minItems": 1,
 			"items": {
@@ -687,7 +694,7 @@
 			"default": false
 		},
 		"originalStyleId": {
-			"description": "Original Music Style ID (used for most music except for merry_go_round). Original list:\nMUSIC_STYLE_DODGEMS_BEAT,\nMUSIC_STYLE_FAIRGROUND_ORGAN,\nMUSIC_STYLE_ROMAN_FANFARE,\nMUSIC_STYLE_ORIENTAL,\nMUSIC_STYLE_MARTIAN,\nMUSIC_STYLE_JUNGLE_DRUMS,\nMUSIC_STYLE_EGYPTIAN,\nMUSIC_STYLE_TOYLAND,\nMUSIC_STYLE_CIRCUS_SHOW,\nMUSIC_STYLE_SPACE,\nMUSIC_STYLE_HORROR,\nMUSIC_STYLE_TECHNO,\nMUSIC_STYLE_GENTLE,\nMUSIC_STYLE_SUMMER,\nMUSIC_STYLE_WATER,\nMUSIC_STYLE_WILD_WEST,\nMUSIC_STYLE_JURASSIC,\nMUSIC_STYLE_ROCK,\nMUSIC_STYLE_RAGTIME,\nMUSIC_STYLE_FANTASY,\nMUSIC_STYLE_ROCK_STYLE_2,\nMUSIC_STYLE_ICE,\nMUSIC_STYLE_SNOW,\nMUSIC_STYLE_CUSTOM_MUSIC_1,\nMUSIC_STYLE_CUSTOM_MUSIC_2,\nMUSIC_STYLE_MEDIEVAL,\nMUSIC_STYLE_URBAN,\nMUSIC_STYLE_ORGAN,\nMUSIC_STYLE_MECHANICAL,\nMUSIC_STYLE_MODERN,\nMUSIC_STYLE_PIRATES,\nMUSIC_STYLE_ROCK_STYLE_3,\nMUSIC_STYLE_CANDY_STYLE",
+			"description": "Original Music Style ID (used for most music except for merry_go_round). Original list:  \n```\nMUSIC_STYLE_DODGEMS_BEAT,  \nMUSIC_STYLE_FAIRGROUND_ORGAN,  \nMUSIC_STYLE_ROMAN_FANFARE,  \nMUSIC_STYLE_ORIENTAL,  \nMUSIC_STYLE_MARTIAN,  \nMUSIC_STYLE_JUNGLE_DRUMS,  \nMUSIC_STYLE_EGYPTIAN,  \nMUSIC_STYLE_TOYLAND,  \nMUSIC_STYLE_CIRCUS_SHOW,  \nMUSIC_STYLE_SPACE,  \nMUSIC_STYLE_HORROR,  \nMUSIC_STYLE_TECHNO,  \nMUSIC_STYLE_GENTLE,  \nMUSIC_STYLE_SUMMER,  \nMUSIC_STYLE_WATER,  \nMUSIC_STYLE_WILD_WEST,  \nMUSIC_STYLE_JURASSIC,  \nMUSIC_STYLE_ROCK,  \nMUSIC_STYLE_RAGTIME,  \nMUSIC_STYLE_FANTASY,  \nMUSIC_STYLE_ROCK_STYLE_2,  \nMUSIC_STYLE_ICE,  \nMUSIC_STYLE_SNOW,  \nMUSIC_STYLE_CUSTOM_MUSIC_1,  \nMUSIC_STYLE_CUSTOM_MUSIC_2,  \nMUSIC_STYLE_MEDIEVAL,  \nMUSIC_STYLE_URBAN,  \nMUSIC_STYLE_ORGAN,  \nMUSIC_STYLE_MECHANICAL,  \nMUSIC_STYLE_MODERN,  \nMUSIC_STYLE_PIRATES,  \nMUSIC_STYLE_ROCK_STYLE_3,  \nMUSIC_STYLE_CANDY_STYLE  \n```",
 			"type": "integer"
 		},
 		"rideTypes": {
@@ -948,7 +955,7 @@
 			"default": 1
 		},
 		"defaultCar": {
-			"description": "Index of the car that should be used as the default car for this ride. In other words, this is the normal car that appears throughout the train wherever there isn't a special (i.e. front or rear) car\r\n0 if not specified",
+			"description": "Index of the car that should be used as the default car for this ride. In other words, this is the normal car that appears throughout the train wherever there isn't a special (i.e. front or rear) car  \n0 if not specified",
 			"type": "integer",
 			"examples": [ 1 ],
 			"default": 0
@@ -964,18 +971,25 @@
 			"examples": [ 0 ]
 		},
 		"category": {
-			"description": "Deprecated. Ride category is now determined from the type",
+			"description": "[Deprecated] Ride category is now determined from the type",
 			"type": "string",
 			"examples": [ "rollercoaster" ]
 		},
 		"cars": {
 			"description": "The cars in this ride",
-			"type": [ "object", "array" ],
-			"items": {
-				"type": "object",
-				"$ref": "#/definitions/carItem"
-			},
-			"$ref": "#/definitions/carItem"
+			"anyOf": [
+				{
+					"title": "A car object",
+					"$ref": "#/definitions/carItem"
+				},
+				{
+					"title": "Array of car objects",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/carItem"
+					}
+				}
+			]
 		},
 		"carItem": {
 			"properties": {
@@ -1020,7 +1034,7 @@
 					"type": "integer"
 				},
 				"animation": {
-					"description": "Indicates a special animation mode to use for this car.\r\n\r\n1: Miniature Railway\r\n2: Swan boats\r\n3: Canoes\r\n4: Row boats\r\n5: Water tricycles\r\n6: Observation tower\r\n7: Helicars\r\n8: Monorail cycles\r\n9: Multidimensional Coaster",
+					"description": "Indicates a special animation mode to use for this car.  \n  \n1: Miniature Railway  \n2: Swan boats  \n3: Canoes  \n4: Row boats  \n5: Water tricycles  \n6: Observation tower  \n7: Helicars  \n8: Monorail cycles  \n9: Multidimensional Coaster",
 					"type": "integer",
 					"minimum": 0,
 					"maximum": 9,
@@ -1156,7 +1170,7 @@
 				"VEHICLE_ENTRY_FLAG_5": {"description": "", "type": "boolean" }, 
 				"VEHICLE_ENTRY_FLAG_HAS_INVERTED_SPRITE_SET": {"description": "Set on vehicles that support running inverted for extended periods of time, i.e. the Flying, Lay-down and Multi-dimension RCs.", "type": "boolean" }, 
 				"VEHICLE_ENTRY_FLAG_DODGEM_INUSE_LIGHTS": {"description": "When set the vehicle has an additional frame for when in use. Used only by dodgems.", "type": "boolean" }, 
-				"VEHICLE_ENTRY_FLAG_ALLOW_DOORS_DEPRECATED": {"description": "Not used any more - every vehicle will now work with doors", "type": "boolean" }, 
+				"VEHICLE_ENTRY_FLAG_ALLOW_DOORS_DEPRECATED": {"description": "[Deprecated] Not used any more since every vehicle will now work with doors", "type": "boolean" }, 
 				"VEHICLE_ENTRY_FLAG_ENABLE_ADDITIONAL_COLOUR_2": {"description": "", "type": "boolean" }, 
 				"VEHICLE_ENTRY_FLAG_10": {"description": "", "type": "boolean" }, 
 				"VEHICLE_ENTRY_FLAG_11": {"description": "", "type": "boolean" }, 
@@ -1208,12 +1222,12 @@
 			"default": false
 		},
 		"playSplashSoundSlide": {
-			"description": "Flagged if the ride should play a splashing sound when entering a water channel, for water coasters. Has no effect if playSplashSound is enabled.\r\nNote: Internally, water channel track is coded as \"covered\" track, so if this flag is set for a ride running on a track that supports covered pieces, it will play a splash sound when entering a covered section of track.",
+			"description": "Flagged if the ride should play a splashing sound when entering a water channel, for water coasters. Has no effect if playSplashSound is enabled.  \nNote: Internally, water channel track is coded as \"covered\" track, so if this flag is set for a ride running on a track that supports covered pieces, it will play a splash sound when entering a covered section of track.",
 			"type": "boolean",
 			"default": false
 		},
 		"hasShelter": {
-			"description": "Flagged if the ride is covered (for example, monorail cars are covered)\r\nNote that there are some ride types in vanilla RCT2 that seem to have this bit set illogically. Pickup-trucks did not have this set, and the uncovered ski lift cars did have these set. These have been changed in OpenRCT2 to make more sense.",
+			"description": "Flagged if the ride is covered (for example, monorail cars are covered)  \nNote that there are some ride types in vanilla RCT2 that seem to have this bit set illogically. Pickup-trucks did not have this set, and the uncovered ski lift cars did have these set. These have been changed in OpenRCT2 to make more sense.",
 			"type": "boolean",
 			"default": false
 		},

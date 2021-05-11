@@ -1,0 +1,14 @@
+{
+    "$schema": "./templates/config_schema.json",
+    "minify": false,
+    "show_breadcrumbs": false,
+    "deprecated_from_description": true,
+    "link_to_reused_ref": false,
+    "templates_directory": "templates",
+    "template_name": "md_nested",
+    "template_md_options": {
+        "show_heading_numbers": false,
+        "badge_as_image": true,
+        "show_array_restrictions": false
+    }
+}

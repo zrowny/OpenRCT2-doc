@@ -2,4 +2,4 @@
 
 ## In progress
 
-[Object JSON schema](schema_doc.html)
+[JSON Object Documentation](JSONObjectSchema.md)
