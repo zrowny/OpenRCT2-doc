@@ -1382,7 +1382,7 @@ Note: If there is more than one preset, only the first color scheme in each pres
 | [items](#allOf_i5_then_properties_carColours_items_items) | -           |
 |                                                           |             |
 
-##### items
+###### items
 
 **Type:** `array`
 
@@ -1393,7 +1393,7 @@ Note: If there is more than one preset, only the first color scheme in each pres
 | [colour](#allOf_i5_then_properties_carColours_items_items_items_i2) | Object color |
 |                                                                     |              |
 
-##### colour
+####### colour
 
 **Type:** `enum (of string)`
 
@@ -1433,7 +1433,7 @@ Must be one of:
 * "bright_pink"
 * "light_pink"
 
-##### colour
+####### colour
 
 **Type:** `enum (of string)`
 
@@ -1473,7 +1473,7 @@ Must be one of:
 * "bright_pink"
 * "light_pink"
 
-##### colour
+####### colour
 
 **Type:** `enum (of string)`
 
@@ -1789,7 +1789,7 @@ Note that there are some ride types in vanilla RCT2 that seem to have this bit s
 | [item 1](#allOf_i5_then_then_properties_sells_anyOf_i1) |
 |                                                         |
 
-##### item 0
+###### item 0
 {: .d-none }
 
 <details>
@@ -1845,7 +1845,7 @@ Must be one of:
 
 </details>
 
-##### item 1
+###### item 1
 {: .d-none }
 
 <details>
@@ -1943,7 +1943,7 @@ Must be one of:
 
 **Description:** Additional rating multiplier(s) for this specific ride subtype (this is separate from the rating multipliers that are hardcoded for each ride type)
 
-##### excitement
+###### excitement
 {: .d-none }
 
 <details>
@@ -1957,7 +1957,7 @@ Must be one of:
 </blockquote>
 </details>
 
-##### intensity
+###### intensity
 {: .d-none }
 
 <details>
@@ -1971,7 +1971,7 @@ Must be one of:
 </blockquote>
 </details>
 
-##### nausea
+###### nausea
 {: .d-none }
 
 <details>
@@ -2160,7 +2160,7 @@ Must be one of:
 | [items](#allOf_i5_then_else_properties_headCars_items) | -           |
 |                                                        |             |
 
-##### items
+###### items
 
 **Type:** `integer`
 
@@ -2208,7 +2208,7 @@ Must be one of:
 | [Array of car objects](#allOf_i5_then_else_properties_cars_anyOf_i1) |
 |                                                                      |
 
-##### A car object
+###### A car object
 {: .d-none }
 
 <details>
@@ -2219,7 +2219,7 @@ A car object    </strong>
 
 <blockquote>
 
-##### rotationFrameMask
+####### rotationFrameMask
 {: .d-none }
 
 <details>
@@ -2241,7 +2241,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### spacing
+####### spacing
 {: .d-none }
 
 <details>
@@ -2263,7 +2263,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### mass
+####### mass
 {: .d-none }
 
 <details>
@@ -2285,7 +2285,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### tabOffset
+####### tabOffset
 {: .d-none }
 
 <details>
@@ -2301,7 +2301,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### numSeats
+####### numSeats
 {: .d-none }
 
 <details>
@@ -2323,7 +2323,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### seatsInPairs
+####### seatsInPairs
 {: .d-none }
 
 <details>
@@ -2339,7 +2339,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### spriteWidth
+####### spriteWidth
 {: .d-none }
 
 <details>
@@ -2355,7 +2355,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### spriteHeightNegative
+####### spriteHeightNegative
 {: .d-none }
 
 <details>
@@ -2371,7 +2371,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### spriteHeightPositive
+####### spriteHeightPositive
 {: .d-none }
 
 <details>
@@ -2387,7 +2387,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### animation
+####### animation
 {: .d-none }
 
 <details>
@@ -2422,7 +2422,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### baseNumFrames
+####### baseNumFrames
 {: .d-none }
 
 <details>
@@ -2438,7 +2438,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### numImages
+####### numImages
 {: .d-none }
 
 <details>
@@ -2454,7 +2454,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### numSeatRows
+####### numSeatRows
 {: .d-none }
 
 <details>
@@ -2474,7 +2474,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### spinningInertia
+####### spinningInertia
 {: .d-none }
 
 <details>
@@ -2488,7 +2488,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### spinningFriction
+####### spinningFriction
 {: .d-none }
 
 <details>
@@ -2502,7 +2502,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### frictionSoundId
+####### frictionSoundId
 {: .d-none }
 
 <details>
@@ -2522,7 +2522,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### logFlumeReverserVehicleType
+####### logFlumeReverserVehicleType
 {: .d-none }
 
 <details>
@@ -2542,7 +2542,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### soundRange
+####### soundRange
 {: .d-none }
 
 <details>
@@ -2556,7 +2556,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### doubleSoundFrequency
+####### doubleSoundFrequency
 {: .d-none }
 
 <details>
@@ -2570,7 +2570,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### poweredAcceleration
+####### poweredAcceleration
 {: .d-none }
 
 <details>
@@ -2584,7 +2584,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### poweredMaxSpeed
+####### poweredMaxSpeed
 {: .d-none }
 
 <details>
@@ -2598,7 +2598,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### carVisual
+####### carVisual
 {: .d-none }
 
 <details>
@@ -2612,7 +2612,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### effectVisual
+####### effectVisual
 {: .d-none }
 
 <details>
@@ -2626,7 +2626,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### drawOrder
+####### drawOrder
 {: .d-none }
 
 <details>
@@ -2646,7 +2646,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### numVerticalFramesOverride
+####### numVerticalFramesOverride
 {: .d-none }
 
 <details>
@@ -2662,7 +2662,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### loadingPositions
+####### loadingPositions
 {: .d-none }
 
 <details>
@@ -2680,7 +2680,7 @@ A car object    </strong>
 | [items](#allOf_i5_then_else_properties_cars_anyOf_i0_loadingPositions_items) | -           |
 |                                                                              |             |
 
-##### items
+######## items
 
 **Type:** `array of integer or integer`
 
@@ -2689,14 +2689,14 @@ A car object    </strong>
 | [items](#allOf_i5_then_else_properties_cars_anyOf_i0_loadingPositions_items_items) | -           |
 |                                                                                    |             |
 
-##### items
+######### items
 
 **Type:** `integer`
 
 </blockquote>
 </details>
 
-##### loadingWaypoints
+####### loadingWaypoints
 {: .d-none }
 
 <details>
@@ -2714,7 +2714,7 @@ A car object    </strong>
 | [items](#allOf_i5_then_else_properties_cars_anyOf_i0_loadingWaypoints_items) | -           |
 |                                                                              |             |
 
-##### items
+######## items
 
 **Type:** `array of integer or integer`
 
@@ -2723,14 +2723,14 @@ A car object    </strong>
 | [items](#allOf_i5_then_else_properties_cars_anyOf_i0_loadingWaypoints_items_items) | -           |
 |                                                                                    |             |
 
-##### items
+######### items
 
 **Type:** `integer`
 
 </blockquote>
 </details>
 
-##### numSegments
+####### numSegments
 {: .d-none }
 
 <details>
@@ -2746,7 +2746,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### frames
+####### frames
 {: .d-none }
 
 <details>
@@ -2757,7 +2757,7 @@ A car object    </strong>
 
 **Description:** A list of the different sets of sprites that this car has
 
-##### flat
+######## flat
 {: .d-none }
 
 <details>
@@ -2773,7 +2773,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### gentleSlopes
+######## gentleSlopes
 {: .d-none }
 
 <details>
@@ -2789,7 +2789,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### steepSlopes
+######## steepSlopes
 {: .d-none }
 
 <details>
@@ -2805,7 +2805,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### verticalSlopes
+######## verticalSlopes
 {: .d-none }
 
 <details>
@@ -2821,7 +2821,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### diagonalSlopes
+######## diagonalSlopes
 {: .d-none }
 
 <details>
@@ -2837,7 +2837,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### flatBanked
+######## flatBanked
 {: .d-none }
 
 <details>
@@ -2853,7 +2853,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### inlineTwists
+######## inlineTwists
 {: .d-none }
 
 <details>
@@ -2869,7 +2869,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### flatToGentleSlopeBankedTransitions
+######## flatToGentleSlopeBankedTransitions
 {: .d-none }
 
 <details>
@@ -2885,7 +2885,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### diagonalGentleSlopeBankedTransitions
+######## diagonalGentleSlopeBankedTransitions
 {: .d-none }
 
 <details>
@@ -2901,7 +2901,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### gentleSlopeBankedTransitions
+######## gentleSlopeBankedTransitions
 {: .d-none }
 
 <details>
@@ -2917,7 +2917,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### gentleSlopeBankedTurns
+######## gentleSlopeBankedTurns
 {: .d-none }
 
 <details>
@@ -2933,7 +2933,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### flatToGentleSlopeWhileBankedTransitions
+######## flatToGentleSlopeWhileBankedTransitions
 {: .d-none }
 
 <details>
@@ -2949,7 +2949,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### corkscrews
+######## corkscrews
 {: .d-none }
 
 <details>
@@ -2965,7 +2965,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### restraintAnimation
+######## restraintAnimation
 {: .d-none }
 
 <details>
@@ -2981,7 +2981,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### curvedLiftHill
+######## curvedLiftHill
 {: .d-none }
 
 <details>
@@ -3000,7 +3000,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_POWERED_RIDE_UNRESTRICTED_GRAVITY
+####### VEHICLE_ENTRY_FLAG_POWERED_RIDE_UNRESTRICTED_GRAVITY
 {: .d-none }
 
 <details>
@@ -3016,7 +3016,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_NO_UPSTOP_WHEELS
+####### VEHICLE_ENTRY_FLAG_NO_UPSTOP_WHEELS
 {: .d-none }
 
 <details>
@@ -3030,7 +3030,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_NO_UPSTOP_BOBSLEIGH
+####### VEHICLE_ENTRY_FLAG_NO_UPSTOP_BOBSLEIGH
 {: .d-none }
 
 <details>
@@ -3044,7 +3044,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_MINI_GOLF
+####### VEHICLE_ENTRY_FLAG_MINI_GOLF
 {: .d-none }
 
 <details>
@@ -3058,7 +3058,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_4
+####### VEHICLE_ENTRY_FLAG_4
 {: .d-none }
 
 <details>
@@ -3072,7 +3072,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_5
+####### VEHICLE_ENTRY_FLAG_5
 {: .d-none }
 
 <details>
@@ -3086,7 +3086,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_HAS_INVERTED_SPRITE_SET
+####### VEHICLE_ENTRY_FLAG_HAS_INVERTED_SPRITE_SET
 {: .d-none }
 
 <details>
@@ -3102,7 +3102,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_DODGEM_INUSE_LIGHTS
+####### VEHICLE_ENTRY_FLAG_DODGEM_INUSE_LIGHTS
 {: .d-none }
 
 <details>
@@ -3118,7 +3118,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### ~~VEHICLE_ENTRY_FLAG_ALLOW_DOORS_DEPRECATED~~
+####### ~~VEHICLE_ENTRY_FLAG_ALLOW_DOORS_DEPRECATED~~
 {: .d-none }
 
 <details>
@@ -3137,7 +3137,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_ENABLE_ADDITIONAL_COLOUR_2
+####### VEHICLE_ENTRY_FLAG_ENABLE_ADDITIONAL_COLOUR_2
 {: .d-none }
 
 <details>
@@ -3151,7 +3151,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_10
+####### VEHICLE_ENTRY_FLAG_10
 {: .d-none }
 
 <details>
@@ -3165,7 +3165,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_11
+####### VEHICLE_ENTRY_FLAG_11
 {: .d-none }
 
 <details>
@@ -3179,7 +3179,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_OVERRIDE_NUM_VERTICAL_FRAMES
+####### VEHICLE_ENTRY_FLAG_OVERRIDE_NUM_VERTICAL_FRAMES
 {: .d-none }
 
 <details>
@@ -3195,7 +3195,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_13
+####### VEHICLE_ENTRY_FLAG_13
 {: .d-none }
 
 <details>
@@ -3209,7 +3209,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_SPINNING_ADDITIONAL_FRAMES
+####### VEHICLE_ENTRY_FLAG_SPINNING_ADDITIONAL_FRAMES
 {: .d-none }
 
 <details>
@@ -3225,7 +3225,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_LIFT
+####### VEHICLE_ENTRY_FLAG_LIFT
 {: .d-none }
 
 <details>
@@ -3239,7 +3239,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_ENABLE_ADDITIONAL_COLOUR_1
+####### VEHICLE_ENTRY_FLAG_ENABLE_ADDITIONAL_COLOUR_1
 {: .d-none }
 
 <details>
@@ -3253,7 +3253,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_SWINGING
+####### VEHICLE_ENTRY_FLAG_SWINGING
 {: .d-none }
 
 <details>
@@ -3267,7 +3267,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_SPINNING
+####### VEHICLE_ENTRY_FLAG_SPINNING
 {: .d-none }
 
 <details>
@@ -3281,7 +3281,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_POWERED
+####### VEHICLE_ENTRY_FLAG_POWERED
 {: .d-none }
 
 <details>
@@ -3295,7 +3295,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_RIDERS_SCREAM
+####### VEHICLE_ENTRY_FLAG_RIDERS_SCREAM
 {: .d-none }
 
 <details>
@@ -3309,7 +3309,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_21
+####### VEHICLE_ENTRY_FLAG_21
 {: .d-none }
 
 <details>
@@ -3325,7 +3325,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_BOAT_HIRE_COLLISION_DETECTION
+####### VEHICLE_ENTRY_FLAG_BOAT_HIRE_COLLISION_DETECTION
 {: .d-none }
 
 <details>
@@ -3339,7 +3339,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_VEHICLE_ANIMATION
+####### VEHICLE_ENTRY_FLAG_VEHICLE_ANIMATION
 {: .d-none }
 
 <details>
@@ -3355,7 +3355,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_RIDER_ANIMATION
+####### VEHICLE_ENTRY_FLAG_RIDER_ANIMATION
 {: .d-none }
 
 <details>
@@ -3369,7 +3369,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_25
+####### VEHICLE_ENTRY_FLAG_25
 {: .d-none }
 
 <details>
@@ -3383,7 +3383,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_SLIDE_SWING
+####### VEHICLE_ENTRY_FLAG_SLIDE_SWING
 {: .d-none }
 
 <details>
@@ -3399,7 +3399,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_CHAIRLIFT
+####### VEHICLE_ENTRY_FLAG_CHAIRLIFT
 {: .d-none }
 
 <details>
@@ -3413,7 +3413,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_WATER_RIDE
+####### VEHICLE_ENTRY_FLAG_WATER_RIDE
 {: .d-none }
 
 <details>
@@ -3429,7 +3429,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_GO_KART
+####### VEHICLE_ENTRY_FLAG_GO_KART
 {: .d-none }
 
 <details>
@@ -3443,7 +3443,7 @@ A car object    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_DODGEM_CAR_PLACEMENT
+####### VEHICLE_ENTRY_FLAG_DODGEM_CAR_PLACEMENT
 {: .d-none }
 
 <details>
@@ -3461,7 +3461,7 @@ A car object    </strong>
 
 </details>
 
-##### Array of car objects
+###### Array of car objects
 {: .d-none }
 
 <details>
@@ -3479,9 +3479,9 @@ Array of car objects    </strong>
 | [carItem](#allOf_i5_then_else_properties_cars_anyOf_i1_items) | -           |
 |                                                               |             |
 
-##### carItem
+####### carItem
 
-##### rotationFrameMask
+######## rotationFrameMask
 {: .d-none }
 
 <details>
@@ -3503,7 +3503,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### spacing
+######## spacing
 {: .d-none }
 
 <details>
@@ -3525,7 +3525,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### mass
+######## mass
 {: .d-none }
 
 <details>
@@ -3547,7 +3547,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### tabOffset
+######## tabOffset
 {: .d-none }
 
 <details>
@@ -3563,7 +3563,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### numSeats
+######## numSeats
 {: .d-none }
 
 <details>
@@ -3585,7 +3585,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### seatsInPairs
+######## seatsInPairs
 {: .d-none }
 
 <details>
@@ -3601,7 +3601,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### spriteWidth
+######## spriteWidth
 {: .d-none }
 
 <details>
@@ -3617,7 +3617,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### spriteHeightNegative
+######## spriteHeightNegative
 {: .d-none }
 
 <details>
@@ -3633,7 +3633,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### spriteHeightPositive
+######## spriteHeightPositive
 {: .d-none }
 
 <details>
@@ -3649,7 +3649,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### animation
+######## animation
 {: .d-none }
 
 <details>
@@ -3684,7 +3684,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### baseNumFrames
+######## baseNumFrames
 {: .d-none }
 
 <details>
@@ -3700,7 +3700,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### numImages
+######## numImages
 {: .d-none }
 
 <details>
@@ -3716,7 +3716,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### numSeatRows
+######## numSeatRows
 {: .d-none }
 
 <details>
@@ -3736,7 +3736,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### spinningInertia
+######## spinningInertia
 {: .d-none }
 
 <details>
@@ -3750,7 +3750,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### spinningFriction
+######## spinningFriction
 {: .d-none }
 
 <details>
@@ -3764,7 +3764,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### frictionSoundId
+######## frictionSoundId
 {: .d-none }
 
 <details>
@@ -3784,7 +3784,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### logFlumeReverserVehicleType
+######## logFlumeReverserVehicleType
 {: .d-none }
 
 <details>
@@ -3804,7 +3804,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### soundRange
+######## soundRange
 {: .d-none }
 
 <details>
@@ -3818,7 +3818,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### doubleSoundFrequency
+######## doubleSoundFrequency
 {: .d-none }
 
 <details>
@@ -3832,7 +3832,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### poweredAcceleration
+######## poweredAcceleration
 {: .d-none }
 
 <details>
@@ -3846,7 +3846,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### poweredMaxSpeed
+######## poweredMaxSpeed
 {: .d-none }
 
 <details>
@@ -3860,7 +3860,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### carVisual
+######## carVisual
 {: .d-none }
 
 <details>
@@ -3874,7 +3874,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### effectVisual
+######## effectVisual
 {: .d-none }
 
 <details>
@@ -3888,7 +3888,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### drawOrder
+######## drawOrder
 {: .d-none }
 
 <details>
@@ -3908,7 +3908,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### numVerticalFramesOverride
+######## numVerticalFramesOverride
 {: .d-none }
 
 <details>
@@ -3924,7 +3924,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### loadingPositions
+######## loadingPositions
 {: .d-none }
 
 <details>
@@ -3942,7 +3942,7 @@ Array of car objects    </strong>
 | [items](#allOf_i5_then_else_properties_cars_anyOf_i0_loadingPositions_items) | -           |
 |                                                                              |             |
 
-##### items
+######### items
 
 **Type:** `array of integer or integer`
 
@@ -3951,14 +3951,14 @@ Array of car objects    </strong>
 | [items](#allOf_i5_then_else_properties_cars_anyOf_i0_loadingPositions_items_items) | -           |
 |                                                                                    |             |
 
-##### items
+########## items
 
 **Type:** `integer`
 
 </blockquote>
 </details>
 
-##### loadingWaypoints
+######## loadingWaypoints
 {: .d-none }
 
 <details>
@@ -3976,7 +3976,7 @@ Array of car objects    </strong>
 | [items](#allOf_i5_then_else_properties_cars_anyOf_i0_loadingWaypoints_items) | -           |
 |                                                                              |             |
 
-##### items
+######### items
 
 **Type:** `array of integer or integer`
 
@@ -3985,14 +3985,14 @@ Array of car objects    </strong>
 | [items](#allOf_i5_then_else_properties_cars_anyOf_i0_loadingWaypoints_items_items) | -           |
 |                                                                                    |             |
 
-##### items
+########## items
 
 **Type:** `integer`
 
 </blockquote>
 </details>
 
-##### numSegments
+######## numSegments
 {: .d-none }
 
 <details>
@@ -4008,7 +4008,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### frames
+######## frames
 {: .d-none }
 
 <details>
@@ -4019,7 +4019,7 @@ Array of car objects    </strong>
 
 **Description:** A list of the different sets of sprites that this car has
 
-##### flat
+######### flat
 {: .d-none }
 
 <details>
@@ -4035,7 +4035,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### gentleSlopes
+######### gentleSlopes
 {: .d-none }
 
 <details>
@@ -4051,7 +4051,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### steepSlopes
+######### steepSlopes
 {: .d-none }
 
 <details>
@@ -4067,7 +4067,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### verticalSlopes
+######### verticalSlopes
 {: .d-none }
 
 <details>
@@ -4083,7 +4083,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### diagonalSlopes
+######### diagonalSlopes
 {: .d-none }
 
 <details>
@@ -4099,7 +4099,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### flatBanked
+######### flatBanked
 {: .d-none }
 
 <details>
@@ -4115,7 +4115,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### inlineTwists
+######### inlineTwists
 {: .d-none }
 
 <details>
@@ -4131,7 +4131,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### flatToGentleSlopeBankedTransitions
+######### flatToGentleSlopeBankedTransitions
 {: .d-none }
 
 <details>
@@ -4147,7 +4147,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### diagonalGentleSlopeBankedTransitions
+######### diagonalGentleSlopeBankedTransitions
 {: .d-none }
 
 <details>
@@ -4163,7 +4163,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### gentleSlopeBankedTransitions
+######### gentleSlopeBankedTransitions
 {: .d-none }
 
 <details>
@@ -4179,7 +4179,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### gentleSlopeBankedTurns
+######### gentleSlopeBankedTurns
 {: .d-none }
 
 <details>
@@ -4195,7 +4195,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### flatToGentleSlopeWhileBankedTransitions
+######### flatToGentleSlopeWhileBankedTransitions
 {: .d-none }
 
 <details>
@@ -4211,7 +4211,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### corkscrews
+######### corkscrews
 {: .d-none }
 
 <details>
@@ -4227,7 +4227,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### restraintAnimation
+######### restraintAnimation
 {: .d-none }
 
 <details>
@@ -4243,7 +4243,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### curvedLiftHill
+######### curvedLiftHill
 {: .d-none }
 
 <details>
@@ -4262,7 +4262,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_POWERED_RIDE_UNRESTRICTED_GRAVITY
+######## VEHICLE_ENTRY_FLAG_POWERED_RIDE_UNRESTRICTED_GRAVITY
 {: .d-none }
 
 <details>
@@ -4278,7 +4278,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_NO_UPSTOP_WHEELS
+######## VEHICLE_ENTRY_FLAG_NO_UPSTOP_WHEELS
 {: .d-none }
 
 <details>
@@ -4292,7 +4292,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_NO_UPSTOP_BOBSLEIGH
+######## VEHICLE_ENTRY_FLAG_NO_UPSTOP_BOBSLEIGH
 {: .d-none }
 
 <details>
@@ -4306,7 +4306,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_MINI_GOLF
+######## VEHICLE_ENTRY_FLAG_MINI_GOLF
 {: .d-none }
 
 <details>
@@ -4320,7 +4320,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_4
+######## VEHICLE_ENTRY_FLAG_4
 {: .d-none }
 
 <details>
@@ -4334,7 +4334,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_5
+######## VEHICLE_ENTRY_FLAG_5
 {: .d-none }
 
 <details>
@@ -4348,7 +4348,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_HAS_INVERTED_SPRITE_SET
+######## VEHICLE_ENTRY_FLAG_HAS_INVERTED_SPRITE_SET
 {: .d-none }
 
 <details>
@@ -4364,7 +4364,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_DODGEM_INUSE_LIGHTS
+######## VEHICLE_ENTRY_FLAG_DODGEM_INUSE_LIGHTS
 {: .d-none }
 
 <details>
@@ -4380,7 +4380,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### ~~VEHICLE_ENTRY_FLAG_ALLOW_DOORS_DEPRECATED~~
+######## ~~VEHICLE_ENTRY_FLAG_ALLOW_DOORS_DEPRECATED~~
 {: .d-none }
 
 <details>
@@ -4399,7 +4399,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_ENABLE_ADDITIONAL_COLOUR_2
+######## VEHICLE_ENTRY_FLAG_ENABLE_ADDITIONAL_COLOUR_2
 {: .d-none }
 
 <details>
@@ -4413,7 +4413,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_10
+######## VEHICLE_ENTRY_FLAG_10
 {: .d-none }
 
 <details>
@@ -4427,7 +4427,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_11
+######## VEHICLE_ENTRY_FLAG_11
 {: .d-none }
 
 <details>
@@ -4441,7 +4441,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_OVERRIDE_NUM_VERTICAL_FRAMES
+######## VEHICLE_ENTRY_FLAG_OVERRIDE_NUM_VERTICAL_FRAMES
 {: .d-none }
 
 <details>
@@ -4457,7 +4457,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_13
+######## VEHICLE_ENTRY_FLAG_13
 {: .d-none }
 
 <details>
@@ -4471,7 +4471,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_SPINNING_ADDITIONAL_FRAMES
+######## VEHICLE_ENTRY_FLAG_SPINNING_ADDITIONAL_FRAMES
 {: .d-none }
 
 <details>
@@ -4487,7 +4487,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_LIFT
+######## VEHICLE_ENTRY_FLAG_LIFT
 {: .d-none }
 
 <details>
@@ -4501,7 +4501,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_ENABLE_ADDITIONAL_COLOUR_1
+######## VEHICLE_ENTRY_FLAG_ENABLE_ADDITIONAL_COLOUR_1
 {: .d-none }
 
 <details>
@@ -4515,7 +4515,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_SWINGING
+######## VEHICLE_ENTRY_FLAG_SWINGING
 {: .d-none }
 
 <details>
@@ -4529,7 +4529,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_SPINNING
+######## VEHICLE_ENTRY_FLAG_SPINNING
 {: .d-none }
 
 <details>
@@ -4543,7 +4543,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_POWERED
+######## VEHICLE_ENTRY_FLAG_POWERED
 {: .d-none }
 
 <details>
@@ -4557,7 +4557,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_RIDERS_SCREAM
+######## VEHICLE_ENTRY_FLAG_RIDERS_SCREAM
 {: .d-none }
 
 <details>
@@ -4571,7 +4571,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_21
+######## VEHICLE_ENTRY_FLAG_21
 {: .d-none }
 
 <details>
@@ -4587,7 +4587,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_BOAT_HIRE_COLLISION_DETECTION
+######## VEHICLE_ENTRY_FLAG_BOAT_HIRE_COLLISION_DETECTION
 {: .d-none }
 
 <details>
@@ -4601,7 +4601,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_VEHICLE_ANIMATION
+######## VEHICLE_ENTRY_FLAG_VEHICLE_ANIMATION
 {: .d-none }
 
 <details>
@@ -4617,7 +4617,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_RIDER_ANIMATION
+######## VEHICLE_ENTRY_FLAG_RIDER_ANIMATION
 {: .d-none }
 
 <details>
@@ -4631,7 +4631,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_25
+######## VEHICLE_ENTRY_FLAG_25
 {: .d-none }
 
 <details>
@@ -4645,7 +4645,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_SLIDE_SWING
+######## VEHICLE_ENTRY_FLAG_SLIDE_SWING
 {: .d-none }
 
 <details>
@@ -4661,7 +4661,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_CHAIRLIFT
+######## VEHICLE_ENTRY_FLAG_CHAIRLIFT
 {: .d-none }
 
 <details>
@@ -4675,7 +4675,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_WATER_RIDE
+######## VEHICLE_ENTRY_FLAG_WATER_RIDE
 {: .d-none }
 
 <details>
@@ -4691,7 +4691,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_GO_KART
+######## VEHICLE_ENTRY_FLAG_GO_KART
 {: .d-none }
 
 <details>
@@ -4705,7 +4705,7 @@ Array of car objects    </strong>
 </blockquote>
 </details>
 
-##### VEHICLE_ENTRY_FLAG_DODGEM_CAR_PLACEMENT
+######## VEHICLE_ENTRY_FLAG_DODGEM_CAR_PLACEMENT
 {: .d-none }
 
 <details>
@@ -4759,8 +4759,8 @@ If Scenery Group    </strong>
 <blockquote>
 
 ##### <a name="autogenerated_heading_1"></a>The following properties are required
-* textHeight
 * scrollingMode
+* textHeight
 
 </blockquote>
 </details>
@@ -4791,8 +4791,8 @@ If Footpath Banner    </strong>
 <blockquote>
 
 ##### <a name="autogenerated_heading_2"></a>The following properties are required
-* textHeight
 * scrollingMode
+* textHeight
 
 </blockquote>
 </details>
@@ -4823,8 +4823,8 @@ If Footpath Item    </strong>
 <blockquote>
 
 ##### <a name="autogenerated_heading_3"></a>The following properties are required
-* textHeight
 * scrollingMode
+* textHeight
 
 </blockquote>
 </details>
@@ -4855,8 +4855,8 @@ If Large Scenery    </strong>
 <blockquote>
 
 ##### <a name="autogenerated_heading_4"></a>The following properties are required
-* textHeight
 * scrollingMode
+* textHeight
 
 </blockquote>
 </details>
@@ -4887,8 +4887,8 @@ If Small Scenery    </strong>
 <blockquote>
 
 ##### <a name="autogenerated_heading_5"></a>The following properties are required
-* textHeight
 * scrollingMode
+* textHeight
 
 </blockquote>
 </details>
@@ -4919,8 +4919,8 @@ If Wall    </strong>
 <blockquote>
 
 ##### <a name="autogenerated_heading_6"></a>The following properties are required
-* textHeight
 * scrollingMode
+* textHeight
 
 </blockquote>
 </details>
@@ -4951,8 +4951,8 @@ If Station    </strong>
 <blockquote>
 
 ##### <a name="autogenerated_heading_7"></a>The following properties are required
-* textHeight
 * scrollingMode
+* textHeight
 
 </blockquote>
 </details>
@@ -4983,8 +4983,8 @@ If Terrain Edge    </strong>
 <blockquote>
 
 ##### <a name="autogenerated_heading_8"></a>The following properties are required
-* textHeight
 * scrollingMode
+* textHeight
 
 </blockquote>
 </details>
@@ -5015,8 +5015,8 @@ If Terrain Surface    </strong>
 <blockquote>
 
 ##### <a name="autogenerated_heading_9"></a>The following properties are required
-* textHeight
 * scrollingMode
+* textHeight
 
 </blockquote>
 </details>
@@ -5047,8 +5047,8 @@ If Water    </strong>
 <blockquote>
 
 ##### <a name="autogenerated_heading_10"></a>The following properties are required
-* textHeight
 * scrollingMode
+* textHeight
 
 </blockquote>
 </details>
@@ -5058,6 +5058,9 @@ If Water    </strong>
 </details>
 
 </blockquote>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="assets/js/docs.js"></script>
 
 ----------------------------------------------------------------------------------------------------------------------------
-Generated using [json-schema-for-humans](https://github.com/coveooss/json-schema-for-humans) on 2021-05-11 at 02:14:03 -0400
+Generated using [json-schema-for-humans](https://github.com/coveooss/json-schema-for-humans) on 2021-05-11 at 04:44:12 -0400

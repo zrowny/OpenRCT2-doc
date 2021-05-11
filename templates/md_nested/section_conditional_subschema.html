@@ -2,7 +2,7 @@
     {% set first_property =  schema.kw_if | get_first_property %}
 
     {% if schema.kw_then %}
-        {{- "#" * [(depth + 1), 5]|min ~ " " if not no_header else '```' -}} If (
+        {{- "#" * (depth + 1) ~ " " if not no_header else '```' -}} If (
             {%- with schema=first_property, thenelse=True -%}
                 {%- include "section_conditional_condition.html" -%}
             {%- endwith -%}
@@ -18,7 +18,7 @@
         {# {% endif %} #}
     {% endif %}
     {% if schema.kw_else %}
-        {{- "#" * [(depth + 1), 5]|min ~ " " if not no_header else '' -}} Else (i.e. {{ " " }}
+        {{- "#" * (depth + 1) ~ " " if not no_header else '' -}} Else (i.e. {{ " " }}
             {%- with schema=first_property, thenelse=False -%}
                 {%- include "section_conditional_condition.html" -%}
             {%- endwith -%}

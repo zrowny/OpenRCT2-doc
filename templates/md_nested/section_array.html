@@ -4,7 +4,7 @@
 {{ schema | md_array_items_restrictions | md_generate_table }}
 
 {% for item in schema.kw_items %}
-    {{- "#" * [(depth + 1), 5]|min ~ " " -}}
+    {{- "#" * (depth + 1) ~ " " -}}
     {% with schema=item %}{%- include "breadcrumbs.html" %}{% endwith %}
     {% with schema=item, skip_headers=False, depth=depth+1, skip_required=True %}
         {% include "content.html" %}
@@ -13,7 +13,7 @@
 {% endif %}
 
 {% if schema.kw_contains and schema.kw_contains.literal != {} %}
-{{ "#" * [(depth + 1), 5]|min ~ " At least one of the items must be" }}
+{{ "#" * (depth + 1) ~ " At least one of the items must be" }}
 {% with schema=schema.kw_contains, skip_headers=False, depth=depth+1, skip_required=True %}
     {% include "content.html" %}
 {% endwith %}

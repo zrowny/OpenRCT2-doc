@@ -6,7 +6,7 @@
 
 {% for node in current_node.array_items %}
 
-{{ "#" * [(depth + 1), 5]|min ~ " " -}}
+{{ "#" * (depth + 1) ~ " " -}}
 {% if node.is_pattern_property %}Pattern {% endif %}{% with schema=node %}{%- include "breadcrumbs.html" %}{% endwith %}
 
 {: .d-none }

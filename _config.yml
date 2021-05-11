@@ -3,7 +3,7 @@ remote_theme: pmarsceill/just-the-docs
 markdown: kramdown
 kramdown:
   parse_block_html: true
-  toc_levels: 1..4
+  #toc_levels: 1..4
 
 
 title: OpenRCT2 Format Documentation

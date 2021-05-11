@@ -7,7 +7,7 @@
 
   {% set description = sub_property | get_description %}
 
-{{ "#" * [(depth + 1), 5]|min ~ " " -}}
+{{ "#" * (depth + 1) ~ " " -}}
 {%- filter replace('\n', '') -%}
     {%- if not skip_required and sub_property.property_name -%}
         {{ (md_badge("Required", "blue", show_text=True) ~ " ") if sub_property.is_required_property -}}

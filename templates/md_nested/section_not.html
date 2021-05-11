@@ -1,4 +1,4 @@
-{{ "#" * [(depth + 1), 5]|min ~ " Must **not** be" }}
+{{ "#" * (depth + 1) ~ " Must **not** be" }}
 {% with schema=schema.kw_not, skip_headers=False, depth=depth+1, skip_required=True %}
     {% include "content.html" %}
 {% endwith %}
