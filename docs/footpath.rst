@@ -1,7 +1,7 @@
 Footpath
 ========================================
 
-.. jsonschema:: json/OpenRCT2JSONObjectFootpathSchema.json
+This type of object is deprecated, and has been split into :ref:`footpathrailings` and :ref:`footpathsurface`
 
 
 .. jsonschema:: json/OpenRCT2JSONObjectDefinitions.json#/definitions/supportType

@@ -1,19 +1,60 @@
-@import 'theme.css';
+.section {
+  margin-left: 10px;
+}
+
+.section:only-child {
+  margin-left: 0px
+}
+
+h3 {
+  margin: 15px 0 5px !important;
+}
+
+.section:first-of-type > h3 {
+  margin: 0 0 5px !important;
+}
+
+h4 {
+  font-size: 100% !important;
+  margin: 15px 0 5px !important;
+}
+
+.section:first-of-type > h4 {
+  margin: 0 0 5px !important;
+}
+
+p {
+  margin: 0 0 12px !important;
+}
 
 /* override table width restrictions */
 .wy-table-responsive table td, .wy-table-responsive table th {
   /* !important prevents the common CSS stylesheets from
      overriding this as on RTD they are loaded after this stylesheet */
   white-space: normal !important;
-  max-width: 600px !important;
+  max-width: 300px !important;
+  overflow: auto !important;
+  padding: 8px !important;
+
 }
+
+.wy-table-responsive table colgroup {
+  display: none !important;
+}
+
 
 .wy-table-responsive {
   overflow: visible !important;
+  margin-bottom: 0px !important;
+
+}
+
+.wy-table-responsive table td:not([colspan]):first-child {
+  max-width: 200px !important;
 }
 
 .rst-content div[class^=highlight], .rst-content pre.literal-block {
-  margin: 0 !important;
+  margin: 12px !important;
 }
 
 .wy-nav-content {
@@ -29,6 +70,31 @@
   border: 2px solid #e1e4e5 !important;
 }
 
-td:empty {
+.rst-content .code-block-caption {
+  font-style: italic;
+  font-size: 85%;
+  line-height: 1;
   padding: 0 !important;
+  text-align: right !important;
+}
+
+.wy-table-responsive table td:empty {
+  padding: 0 !important;
+}
+
+td p {
+  margin-bottom: 0 !important;
+}
+
+.section td ul {
+  margin: 0px !important;
+}
+
+.section td li {
+  margin-left: 6px !important;
+  list-style-position: inside !important;
+}
+
+.section td li p {
+  display: inline !important;
 }

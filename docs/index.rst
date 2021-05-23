@@ -7,7 +7,7 @@ OpenRCT2 documentation
 ========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :includehidden:
 
    object
