@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Footpath Railings Object Properties",
+    "type": "object",
+    "properties": {
+        "supportType": { "$ref": "#OpenRCT2JSONObjectDefinitions.json/definitions/supportType" },
+        "scrollingMode": { "$ref": "#OpenRCT2JSONObjectDefinitions.json/definitions/scrollingMode" },
+        "colour": { "$ref": "#OpenRCT2JSONObjectDefinitions.json/definitions/colour" },
+        "hasSupportImages": { "$ref": "#OpenRCT2JSONObjectDefinitions.json/definitions/hasSupportImages" },
+        "hasElevatedPathImages": { "$ref": "#OpenRCT2JSONObjectDefinitions.json/definitions/hasElevatedPathImages" }
+    },
+    "required": [ "supportType", "scrollingMode" ]
+}

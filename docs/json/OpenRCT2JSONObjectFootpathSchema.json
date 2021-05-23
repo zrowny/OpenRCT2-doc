@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "OpenRCT2 JSON Footpath Object Description",
+    "type": "object",
+    "properties": {
+        "supportType": { "$ref": "#OpenRCT2JSONObjectDefinitions.json/definitions/supportType" },
+        "scrollingMode": { "$ref": "#OpenRCT2JSONObjectDefinitions.json/definitions/scrollingMode" },
+        "noSlopeRailings": { "$ref": "#OpenRCT2JSONObjectDefinitions.json/definitions/noSlopeRailings" },
+        "hasSupportImages": { "$ref": "#OpenRCT2JSONObjectDefinitions.json/definitions/hasSupportImages" },
+        "hasElevatedPathImages": { "$ref": "#OpenRCT2JSONObjectDefinitions.json/definitions/hasElevatedPathImages" },
+        "editorOnly": { "$ref": "#OpenRCT2JSONObjectDefinitions.json/definitions/editorOnly" }
+    },
+    "required": [ "supportType", "scrollingMode" ]
+}

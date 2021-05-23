@@ -1,0 +1,10 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Footpath Surface Object Properties",
+    "type": "object",
+    "properties": {
+        "isQueue": { "$ref": "#OpenRCT2JSONObjectDefinitions.json/definitions/isQueue" },
+        "noSlopeRailings": { "$ref": "#OpenRCT2JSONObjectDefinitions.json/definitions/noSlopeRailings" },
+        "editorOnly": { "$ref": "#OpenRCT2JSONObjectDefinitions.json/definitions/editorOnly" }
+    }
+}

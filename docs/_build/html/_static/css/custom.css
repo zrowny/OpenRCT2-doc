@@ -1,0 +1,34 @@
+@import 'theme.css';
+
+/* override table width restrictions */
+.wy-table-responsive table td, .wy-table-responsive table th {
+  /* !important prevents the common CSS stylesheets from
+     overriding this as on RTD they are loaded after this stylesheet */
+  white-space: normal !important;
+  max-width: 600px !important;
+}
+
+.wy-table-responsive {
+  overflow: visible !important;
+}
+
+.rst-content div[class^=highlight], .rst-content pre.literal-block {
+  margin: 0 !important;
+}
+
+.wy-nav-content {
+  padding: 1.5em 2em;
+}
+
+.rst-content table.docutils td, .wy-table-bordered-all td {
+  border-bottom: 3px solid #e1e4e5 !important;
+  border-left: 2px solid #e1e4e5 !important;
+}
+
+.rst-content table.docutils, .wy-table-bordered-all {
+  border: 2px solid #e1e4e5 !important;
+}
+
+td:empty {
+  padding: 0 !important;
+}

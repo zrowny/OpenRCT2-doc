@@ -1,0 +1,34 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "OpenRCT2 JSON Sprite File Description",
+    "type": "array",
+    "items": {
+        "description": "An image entry in the sprite file",
+        "type": "object",
+        "properties": {
+            "path": {
+                "description": "The relative path to this image.",
+                "type": "string"
+            },
+            "x_offset": {
+                "description": "The relative horizontal offset of this image.",
+                "type": "integer"
+            },
+            "y_offset": {
+                "description": "The relative vertical offset of this image.",
+                "type": "integer"
+            },
+            "palette": {
+                "description": "If set to `\"keep\"`, OpenRCT2 will assume this image is indexed with the correct palette, and will just import the palette indices directly.",
+                "type": "string"
+
+            },
+            "forceBMP": {
+                "description": "If true, this tells OpenRCT2 that this image should be stored in a raw format instead of being run-length encoded (RLE). Requires `\"palette\"` to be set as well.",
+                "type": "boolean",
+                "default": false
+            }
+        },
+        "required": ["path"]
+    }
+}

@@ -1,0 +1,1831 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Ride &mdash; OpenRCT2 doc 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Music" href="music.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> OpenRCT2 doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="object.html">JSON Objects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="object.html#basic-fields">Basic fields</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="object.html#object-types">Object Types</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="parkentrance.html">Park Entrance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="parkentrance.html#park-entrance-object-properties">Park Entrance Object Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="parkentrance.html#scrolling-mode">Scrolling Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="parkentrance.html#text-height">Text Height</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="footpath.html">Footpath</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="footpath.html#openrct2-json-footpath-object-description">OpenRCT2 JSON Footpath Object Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="footpath.html#support-type">Support Type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="footpath.html#scrolling-mode">Scrolling Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="footpath.html#no-slope-railings">No Slope Railings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="footpath.html#has-support-images">Has Support Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="footpath.html#has-elevated-path-images">Has Elevated Path Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="footpath.html#is-editor-only">Is Editor Only</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="footpathrailings.html">Footpath Railings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="footpathrailings.html#footpath-railings-object-properties">Footpath Railings Object Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="footpathrailings.html#support-type">Support Type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="footpathrailings.html#scrolling-mode">Scrolling Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="footpathrailings.html#object-color">Object color</a></li>
+<li class="toctree-l4"><a class="reference internal" href="footpathrailings.html#has-support-images">Has Support Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="footpathrailings.html#has-elevated-path-images">Has Elevated Path Images</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="footpathsurface.html">Footpath Surface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="footpathsurface.html#footpath-surface-object-properties">Footpath Surface Object Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="footpathsurface.html#is-queue">Is Queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="footpathsurface.html#no-slope-railings">No Slope Railings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="footpathsurface.html#is-editor-only">Is Editor Only</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="music.html">Music</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="music.html#music-object-properties">Music Object Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="music.html#original-music-style-id">Original Music Style ID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="music.html#ride-types">Ride Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="music.html#music-tracks">Music Tracks</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Ride</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ride-object-properties">Ride Object Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ride-types">Ride Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#category">category</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maximum-height">Maximum Height</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#car-colours">Car Colours</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#buildmenupriority">buildMenuPriority</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#noinversions">noInversions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nobanking">noBanking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#playdepartsound">playDepartSound</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#playsplashsound">playSplashSound</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#playsplashsoundslide">playSplashSoundSlide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hasshelter">hasShelter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#limitairtimebonus">limitAirTimeBonus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disablebreakdown">disableBreakdown</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nocollisioncrashes">noCollisionCrashes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disablepainting">disablePainting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#swinging-mode">Swinging Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rotation-mode">Rotation Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ratingmultipler">ratingMultipler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mincarspertrain">minCarsPerTrain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#maxcarspertrain">maxCarsPerTrain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#carsperflatride">carsPerFlatRide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numemptycars">numEmptyCars</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultcar">defaultCar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tabcar">tabCar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tabscale">tabScale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#headcars">headCars</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tailcars">tailCars</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cars">cars</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#car">Car</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OpenRCT2 doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="object.html">JSON Objects</a> &raquo;</li>
+        
+      <li>Ride</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/ride.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ride">
+<h1>Ride<a class="headerlink" href="#ride" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ride-object-properties">
+<h2>Ride Object Properties<a class="headerlink" href="#ride-object-properties" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>type: <em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="2"></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>type*</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#ride-types"><span class="std std-ref">Ride Types</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>category</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#category"><span class="std std-ref">category</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>maxHeight</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#maximum-height"><span class="std std-ref">Maximum Height</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>carColours*</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#car-colours"><span class="std std-ref">Car Colours</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>buildMenuPriority</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#buildmenupriority"><span class="std std-ref">buildMenuPriority</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>noInversions</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#noinversions"><span class="std std-ref">noInversions</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>noBanking</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#nobanking"><span class="std std-ref">noBanking</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>playDepartSound</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#playdepartsound"><span class="std std-ref">playDepartSound</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>playSplashSound</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#playsplashsound"><span class="std std-ref">playSplashSound</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>playSplashSoundSlide</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#playsplashsoundslide"><span class="std std-ref">playSplashSoundSlide</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>hasShelter</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#hasshelter"><span class="std std-ref">hasShelter</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>limitAirTimeBonus</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#limitairtimebonus"><span class="std std-ref">limitAirTimeBonus</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>disableBreakdown</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#disablebreakdown"><span class="std std-ref">disableBreakdown</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>noCollisionCrashes</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#nocollisioncrashes"><span class="std std-ref">noCollisionCrashes</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>disablePainting</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#disablepainting"><span class="std std-ref">disablePainting</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>swingMode</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#swinging-mode"><span class="std std-ref">Swinging Mode</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>rotationMode</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#rotation-mode"><span class="std std-ref">Rotation Mode</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>ratingMultipler</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#ratingmultipler"><span class="std std-ref">ratingMultipler</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>minCarsPerTrain</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#mincarspertrain"><span class="std std-ref">minCarsPerTrain</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>maxCarsPerTrain</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#maxcarspertrain"><span class="std std-ref">maxCarsPerTrain</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>carsPerFlatRide</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#carsperflatride"><span class="std std-ref">carsPerFlatRide</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>numEmptyCars</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#numemptycars"><span class="std std-ref">numEmptyCars</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>defaultCar</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#defaultcar"><span class="std std-ref">defaultCar</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>tabCar</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#tabcar"><span class="std std-ref">tabCar</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>tabScale</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#tabscale"><span class="std std-ref">tabScale</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>headCars</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#headcars"><span class="std std-ref">headCars</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>tailCars</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#tailcars"><span class="std std-ref">tailCars</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>cars*</strong></p></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="#cars"><span class="std std-ref">cars</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ride-types">
+<span id="ride-types"></span><h2>Ride Types<a class="headerlink" href="#ride-types" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="3"><p>Array of ride types of this object. Currently only up to 3 are used</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>items</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>enum</p></td>
+<td><p>spiral_rc, stand_up_rc, suspended_swinging_rc, inverted_rc, junior_rc, miniature_railway, monorail, mini_suspended_rc, boat_hire, wooden_wild_mouse, steeplechase, car_ride, launched_freefall, bobsleigh_rc, observation_tower, looping_rc, dinghy_slide, mine_train_rc, chairlift, corkscrew_rc, maze, spiral_slide, go_karts, log_flume, river_rapids, dodgems, swinging_ship, swinging_inverter_ship, food_stall, drink_stall, shop, merry_go_round, information_kiosk, toilets, ferris_wheel, motion_simulator, 3d_cinema, top_spin, space_rings, reverse_freefall_rc, lift, vertical_drop_rc, cash_machine, twist, haunted_house, first_aid, circus, ghost_train, twister_rc, wooden_rc, side_friction_rc, steel_wild_mouse, multi_dimension_rc, flying_rc, virginia_reel, splash_boats, mini_helicopters, lay_down_rc, suspended_monorail, reverser_rc, heartline_twister_rc, mini_golf, giga_rc, roto_drop, flying_saucers, crooked_house, monorail_cycles, compact_inverted_rc, water_coaster, air_powered_vertical_rc, inverted_hairpin_rc, magic_carpet, submarine_ride, river_rafts, enterprise, inverted_impulse_rc, mini_rc, mine_ride, lim_launched_rc, hypercoaster, hyper_twister, monster_trucks, spinning_wild_mouse, classic_mini_rc, hybrid_rc, single_rail_rc</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="category">
+<span id="category"></span><h2>category<a class="headerlink" href="#category" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>[Deprecated] Ride category is now determined from the type</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>string</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>examples</p></td>
+<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;rollercoaster&quot;</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="maximum-height">
+<span id="maximum-height"></span><h2>Maximum Height<a class="headerlink" href="#maximum-height" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Maximum height of the ride (if not set, or set to 0, uses the hardcoded value for the ridetype)</p></td>
+</tr>
+<tr class="row-even"><td><p>type: <em>integer</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="car-colours">
+<span id="car-colours"></span><h2>Car Colours<a class="headerlink" href="#car-colours" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="4"><p>An array of preset color schemes for the ride. Currently, a ride can either have multiple presets (up to 254) with a single color scheme each (which are randomly chosen from when a ride is built), or it can have a single preset that has different color schemes for each train (car?).
+Note: If there is more than one preset, only the first color scheme in each preset is used.</p></td>
+</tr>
+<tr class="row-even"><td colspan="4"><p>type: <em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>examples</p></td>
+<td colspan="3"><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="s2">&quot;bright\_red&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;white&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;light\_brown&quot;</span>
+    <span class="p">]</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="s2">&quot;dark\_green&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;bright\_green&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;white&quot;</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td rowspan="7"><p>items</p></td>
+<td colspan="3"><p>type: <em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><p>items</p></td>
+<td colspan="2"><p>type: <em>array</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>items</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="footpathrailings.html#object-color"><span class="std std-ref">Object color</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="footpathrailings.html#object-color"><span class="std std-ref">Object color</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="footpathrailings.html#object-color"><span class="std std-ref">Object color</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>minItems</p></td>
+<td colspan="2"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>minItems</p></td>
+<td colspan="3"><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="buildmenupriority">
+<span id="buildmenupriority"></span><h2>buildMenuPriority<a class="headerlink" href="#buildmenupriority" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>For rides that do no list their subtypes separately, this number describes the priority order for which subtype should show for the generic ride type in the build menu. Of all the subtypes that are available and researched, whichever has the highest buildMenuPriority will show as representative of the generic ride type.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>maximum</p></td>
+<td><p>255</p></td>
+</tr>
+<tr class="row-even"><td><p>minimum</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="noinversions">
+<span id="noinversions"></span><h2>noInversions<a class="headerlink" href="#noinversions" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Flagged if the ride does not support inversions</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="nobanking">
+<span id="nobanking"></span><h2>noBanking<a class="headerlink" href="#nobanking" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Flagged if the ride does not support banking</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="playdepartsound">
+<span id="playdepartsound"></span><h2>playDepartSound<a class="headerlink" href="#playdepartsound" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Flagged if the ride plays a departure sound when departing the station. depending on sound_range setting, plays Tram or Train departing sound.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="playsplashsound">
+<span id="playsplashsound"></span><h2>playSplashSound<a class="headerlink" href="#playsplashsound" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Flagged if the ride should play a splashing sound on down to flat elements</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="playsplashsoundslide">
+<span id="playsplashsoundslide"></span><h2>playSplashSoundSlide<a class="headerlink" href="#playsplashsoundslide" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Flagged if the ride should play a splashing sound when entering a water channel, for water coasters. Has no effect if playSplashSound is enabled.
+Note: Internally, water channel track is coded as “covered” track, so if this flag is set for a ride running on a track that supports covered pieces, it will play a splash sound when entering a covered section of track.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hasshelter">
+<span id="hasshelter"></span><h2>hasShelter<a class="headerlink" href="#hasshelter" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Flagged if the ride is covered (for example, monorail cars are covered)</p>
+<p>Note that there are some ride types in vanilla RCT2 that seem to have this bit set illogically. Pickup-trucks did not have this set, and the uncovered ski lift cars did have these set. These have been changed in OpenRCT2 to make more sense.</p>
+</td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="limitairtimebonus">
+<span id="limitairtimebonus"></span><h2>limitAirTimeBonus<a class="headerlink" href="#limitairtimebonus" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Flagged if the ride should have a hard cap on how much bonus it gets from airtime. This is only set for heartline-twister coasters, and makes it so that a max of ~2 seconds of airtime can give an excitement bonus.</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="disablebreakdown">
+<span id="disablebreakdown"></span><h2>disableBreakdown<a class="headerlink" href="#disablebreakdown" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Flagged if the ride does not break down</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="nocollisioncrashes">
+<span id="nocollisioncrashes"></span><h2>noCollisionCrashes<a class="headerlink" href="#nocollisioncrashes" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Flagged if the ride does not crash when vehicles collide</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="disablepainting">
+<span id="disablepainting"></span><h2>disablePainting<a class="headerlink" href="#disablepainting" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Flagged if the ride does not support recolouring</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="swinging-mode">
+<span id="swinging-mode"></span><h2>Swinging Mode<a class="headerlink" href="#swinging-mode" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>If set to 1 or 2, indicates alternate swing modes that are used for some rides</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>enum</p></td>
+<td><p>0, 1, 2</p></td>
+</tr>
+<tr class="row-even"><td><p>default</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="rotation-mode">
+<span id="rotation-mode"></span><h2>Rotation Mode<a class="headerlink" href="#rotation-mode" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>If set to 1, indicates alternate rotation modes used for twist, if set to 2, indicates alternate rotation mode used for enterprise</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>enum</p></td>
+<td><p>0, 1, 2</p></td>
+</tr>
+<tr class="row-even"><td><p>default</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ratingmultipler">
+<span id="ratingmultipler"></span><h2>ratingMultipler<a class="headerlink" href="#ratingmultipler" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Additional rating multiplier(s) for this specific ride subtype (this is separate from the rating multipliers that are hardcoded for each ride type)</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>object</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>excitement</strong></p></li>
+</ul>
+</td>
+<td><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>intensity</strong></p></li>
+</ul>
+</td>
+<td><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>nausea</strong></p></li>
+</ul>
+</td>
+<td><p>type: <em>integer</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="mincarspertrain">
+<span id="mincarspertrain"></span><h2>minCarsPerTrain<a class="headerlink" href="#mincarspertrain" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Minimum number of cars that can be in a train</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>examples</p></td>
+<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>default</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="maxcarspertrain">
+<span id="maxcarspertrain"></span><h2>maxCarsPerTrain<a class="headerlink" href="#maxcarspertrain" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Maximum number of cars that can be in a train</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>examples</p></td>
+<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="mi">12</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>default</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="carsperflatride">
+<span id="carsperflatride"></span><h2>carsPerFlatRide<a class="headerlink" href="#carsperflatride" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>The number of cars, for a flat ride</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>255</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="numemptycars">
+<span id="numemptycars"></span><h2>numEmptyCars<a class="headerlink" href="#numemptycars" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>The number of “zero” cars in the train. That is, cars that do not hold any guests</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>minimum</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>default</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="defaultcar">
+<span id="defaultcar"></span><h2>defaultCar<a class="headerlink" href="#defaultcar" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>Index of the car that should be used as the default car for this ride. In other words, this is the normal car that appears throughout the train wherever there isn’t a special (i.e. front or rear) car
+0 if not specified</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>examples</p></td>
+<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>default</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tabcar">
+<span id="tabcar"></span><h2>tabCar<a class="headerlink" href="#tabcar" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>The index of the car that should show in the gui tab for this ride (0 if not specified)</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>number</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tabscale">
+<span id="tabscale"></span><h2>tabScale<a class="headerlink" href="#tabscale" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>If &lt;= 0.5, this will scale the size of the tab preview in half</p></td>
+</tr>
+<tr class="row-even"><td><p>type: <em>number</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="headcars">
+<span id="headcars"></span><h2>headCars<a class="headerlink" href="#headcars" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="2"><p>The index(es) of up to three cars that should be used to fill the front of a train</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>array</em>/<em>number</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>examples</p></td>
+<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p>type: <em>integer</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tailcars">
+<span id="tailcars"></span><h2>tailCars<a class="headerlink" href="#tailcars" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Index of the car that should be used as the tail car, if any (the code supports listing an array instead of just a single index here, but currently only the first index listed is used)</p></td>
+</tr>
+<tr class="row-even"><td><p>type: <em>integer</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cars">
+<span id="cars"></span><h2>cars<a class="headerlink" href="#cars" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="3"><p>The cars in this ride</p></td>
+</tr>
+<tr class="row-even"><td rowspan="8"><p>anyOf</p></td>
+<td colspan="2"><p><em>A car object</em></p></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><a class="reference internal" href="#caritem"><span class="std std-ref">carItem</span></a></p></td>
+</tr>
+<tr class="row-even"><td colspan="2"></td>
+</tr>
+<tr class="row-odd"><td colspan="2"></td>
+</tr>
+<tr class="row-even"><td colspan="2"></td>
+</tr>
+<tr class="row-odd"><td colspan="2"><p><em>Array of car objects</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>items</p></td>
+<td><p><a class="reference internal" href="#caritem"><span class="std std-ref">carItem</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="car">
+<h2>Car<a class="headerlink" href="#car" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="caritem">
+<span id="caritem"></span><h3>carItem<a class="headerlink" href="#caritem" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p><strong>rotationFrameMask</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>A bitmask indicating which rotation frames this car has, for rendering spinning car in the UI?</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>examples</p></td>
+<td colspan="2"><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="mi">31</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p><strong>spacing</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>The space taken up by this car (I have no idea what the units are tbh)</p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td><p>examples</p></td>
+<td colspan="2"><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="mi">146000</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="simple">
+<li><p><strong>mass</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>Mass of this car</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>examples</p></td>
+<td colspan="2"><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="mi">650</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p><strong>tabOffset</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>If used, adds a vertical offset to this car when rendered in the UI</p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="simple">
+<li><p><strong>numSeats</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>Number of seats that this car holds</p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td><p>examples</p></td>
+<td colspan="2"><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>seatsInPairs</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>If set, indicates that guests sit in this car in pairs</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>spriteWidth</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>For manually entering the sprite width for this car. This is only used if VEHICLE_ENTRY_FLAG_10 is set, which seems to only be for non-tracked-rides (?), otherwide this value is calculated.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>spriteHeightNegative</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>For manually entering the sprite height below the origin for this car. This is only used if VEHICLE_ENTRY_FLAG_10 is set, which seems to only be for non-tracked-rides (?), otherwide this value is calculated.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>spriteHeightPositive</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>For manually entering the sprite height above the origin for this car. This is only used if VEHICLE_ENTRY_FLAG_10 is set, which seems to only be for non-tracked-rides (?), otherwide this value is calculated.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><ul class="simple">
+<li><p><strong>animation</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>Indicates a special animation mode to use for this car.</p>
+<p>1: Miniature Railway
+2: Swan boats
+3: Canoes
+4: Row boats
+5: Water tricycles
+6: Observation tower
+7: Helicars
+8: Monorail cycles
+9: Multidimensional Coaster</p>
+</td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>maximum</p></td>
+<td colspan="2"><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>minimum</p></td>
+<td colspan="2"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>default</p></td>
+<td colspan="2"><p>0</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p><strong>baseNumFrames</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>The number of frames (angles) of rotation when this car is flat. This number is always calculated now so it shouldn’t be specified</p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p><strong>numImages</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>The total number of sprites for this car. This number is always calculated now so it shouldn’t be specified</p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p><strong>numSeatRows</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>examples</p></td>
+<td colspan="2"><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>spinningInertia</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>spinningFriction</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p><strong>frictionSoundId</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>examples</p></td>
+<td colspan="2"><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="mi">57</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p><strong>logFlumeReverserVehicleType</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>examples</p></td>
+<td colspan="2"><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>soundRange</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>doubleSoundFrequency</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>poweredAcceleration</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>poweredMaxSpeed</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p><strong>carVisual</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p><strong>effectVisual</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p><strong>drawOrder</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>examples</p></td>
+<td colspan="2"><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p><strong>numVerticalFramesOverride</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>When VEHICLE_ENTRY_FLAG_OVERRIDE_NUM_VERTICAL_FRAMES is set, this value overrides the calculated value</p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="simple">
+<li><p><strong>loadingPositions</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>A list of the different loading positions for this car</p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>type: <em>array</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>items</p></td>
+<td colspan="2"><p>type: <em>array</em>/<em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>items</p></td>
+<td><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="simple">
+<li><p><strong>loadingWaypoints</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>A list of the different loading waypoints guests should use for this car</p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>type: <em>array</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>items</p></td>
+<td colspan="2"><p>type: <em>array</em>/<em>integer</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>items</p></td>
+<td><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><ul class="simple">
+<li><p><strong>numSegments</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>If loadingWaypoints is used, the number of segments</p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>type: <em>integer</em></p></td>
+</tr>
+<tr class="row-even"><td rowspan="33"><ul class="simple">
+<li><p><strong>frames</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>A list of the different sets of sprites that this car has</p></td>
+</tr>
+<tr class="row-odd"><td colspan="3"><p>type: <em>object</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="3"></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>flat</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>If set, this car has sprites for flat track</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>gentleSlopes</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>If set, this car has sprites for gentle slopes</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>steepSlopes</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>If set, this car has sprites for steep slopes</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>verticalSlopes</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>If set, this car has sprites for vertical slopes</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>diagonalSlopes</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>If set, this car has sprites for diagonal slopes</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>flatBanked</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>If set, this car has sprites for banked, flat track</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>inlineTwists</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>If set, this car has sprites for inline twists</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>flatToGentleSlopeBankedTransitions</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>If set, this car has sprites for flat track to banked gentle sloped track</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>diagonalGentleSlopeBankedTransitions</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>If set, this car has sprites for diagonal banked to unbanked, gentle sloped track transitions</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>gentleSlopeBankedTransitions</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>If set, this car has sprites for banked to unbanked, gentle sloped track transitions</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>gentleSlopeBankedTurns</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>If set, this car has sprites for banked gentle sloping turns</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>flatToGentleSlopeWhileBankedTransitions</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>If set, this car has sprites for banked flat track to banked gentle slope</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>corkscrews</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>If set, this car has sprites for corkscrews</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>restraintAnimation</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>If set, this car has sprites for restraints opening and closing</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>curvedLiftHill</strong></p></li>
+</ul>
+</td>
+<td colspan="2"><p>If set, this car has sprites for a curved lift-hill</p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>isPoweredRideWithUnrestrictedGravity</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>Set on powered vehicles that do not slow down when going down a hill</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>hasNoUpstopWheels</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>hasNoUpstopWheelsBobsleigh</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>isMiniGolf</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>isReverserBogie</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>isReverserPassengerCar</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>hasInvertedSpriteSet</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>Set on vehicles that support running inverted for extended periods of time, i.e. the Flying, Lay-down and Multi-dimension RCs.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>hasDodgemInUseLights</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>When set the vehicle has an additional frame for when in use. Used only by dodgems.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>hasAdditionalColour2</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>recalculateSpriteBounds</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>Only used during loading of the object</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>VEHICLE_ENTRY_FLAG_11</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>Sets VEHICLE_ENTRY_FLAG_USE_16_ROTATION_FRAMES. Instead of the default 32 rotation frames. Only used for boat hire and works only for non sloped sprites.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>overrideNumberOfVerticalFrames</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>Setting this will cause the game to use numVerticalFramesOverride instead of calculating it</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>spriteBoundsIncludeInvertedSet</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>Used together for recalculateSpriteBounds if hasInvertedSpriteSet is also set so that the inverted sprites are included in the function that recalculates the sprite bounds.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>hasAdditionalSpinningFrames</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>16x additional frames for vehicle. A spinning item with additional frames must always face forward to load/unload. Spinning without can load/unload at 4 rotations.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>isLift</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>hasAdditionalColour1</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>hasSwinging</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>hasSpinning</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>isPowered</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>hasScreamingRiders</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>useSuspendedSwing</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>Suspended swinging coaster, or bobsleigh if SLIDE_SWING is also enabled.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>useBoatHireCollisionDetection</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>hasVehicleAnimation</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>Set on animated vehicles like the Multi-dimension coaster trains, Miniature Railway locomotives and Helicycles.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>hasRiderAnimation</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>Set when the animation updates rider sprite positions.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>useWoodenWildMouseSwing</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>useSlideSwing</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>Set on dingy slides. They have there own swing value calculations and have a different amount of images. Also set on bobsleighs together with the SUSPENDED_SWING flag.</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>isChairlift</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>isWaterRide</strong></p></li>
+</ul>
+</td>
+<td colspan="3"><p>Set on rides where water would provide continuous propulsion</p></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>isGoKart</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><ul class="simple">
+<li><p><strong>useDodgemCarPlacement</strong></p></li>
+</ul>
+</td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td colspan="3"><p>type: <em>boolean</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="car-colours">
+<span id="id1"></span><h3>Car Colours<a class="headerlink" href="#car-colours" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td colspan="4"><p>An array of preset color schemes for the ride. Currently, a ride can either have multiple presets (up to 254) with a single color scheme each (which are randomly chosen from when a ride is built), or it can have a single preset that has different color schemes for each train (car?).
+Note: If there is more than one preset, only the first color scheme in each preset is used.</p></td>
+</tr>
+<tr class="row-even"><td colspan="4"><p>type: <em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>examples</p></td>
+<td colspan="3"><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="s2">&quot;bright\_red&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;white&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;light\_brown&quot;</span>
+    <span class="p">]</span>
+  <span class="p">],</span>
+  <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="s2">&quot;dark\_green&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;bright\_green&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;white&quot;</span>
+    <span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td rowspan="7"><p>items</p></td>
+<td colspan="3"><p>type: <em>array</em></p></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><p>items</p></td>
+<td colspan="2"><p>type: <em>array</em></p></td>
+</tr>
+<tr class="row-even"><td colspan="2"><p>items</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="footpathrailings.html#object-color"><span class="std std-ref">Object color</span></a></p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="footpathrailings.html#object-color"><span class="std std-ref">Object color</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p><a class="reference internal" href="footpathrailings.html#object-color"><span class="std std-ref">Object color</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>minItems</p></td>
+<td colspan="2"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>minItems</p></td>
+<td colspan="3"><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="music.html" class="btn btn-neutral float-left" title="Music" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, OpenRCT2.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

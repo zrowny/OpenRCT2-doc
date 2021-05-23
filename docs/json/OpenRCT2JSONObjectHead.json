@@ -1,0 +1,146 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "JSON Object",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "OpenRCT2 id of the object. This should be formatted as \"objectsource.objecttype.objectname\" or similar. This value MUST be universally unique.",
+            "type": "string"
+        },
+        "authors": {
+            "description": "Array containing the authors of the object",
+            "type": "array",
+            "items": {
+                        "description": "The name of (one of) the author(s)",
+                        "type": "string"
+            },
+            "examples": [
+                [ "spacek531" ],
+                [ "Chris Sawyer", "Simon Foster" ]
+            ]
+        },
+        "version": {
+            "description": "Version of the object",
+            "type": "string",
+            "examples": [ "1.0" ]
+        },
+        "originalId": {
+            "description": "For converted objects, this represents the original DAT header. The three sections are the flags, name, and checksum. This shouldn't be used for new (not converted) objects.",
+            "type": "string",
+            "examples": [ "00000000|RMCT2   |00003000", "0A188A80|4X4     |0DB8676C" ]
+        },
+        "sourceGame": {
+            "description": "The source(s) of the object. Either a single string or an array containing each source",
+            "anyOf": [
+                {
+                    "title": "Source String",
+                    "type": "string",
+                    "enum": [ "rct1", "rct1aa", "rct1ll", "rct2", "rct2ww", "rct2tt", "official", "custom" ]
+                },
+                {
+                    "title": "Array of Source Strings",
+                    "type": "array"
+                }
+            ]
+        },
+        "objectType": {
+            "description": "The type of the object",
+            "type": "string",
+            "enum": [ "ride", "footpath", "footpath_banner", "footpath_item", "scenery_small", "scenery_large", "scenery_wall", "scenery_group", "park_entrance", "water", "terrain_surface", "terrain_edge", "station", "music", "footpath_surface", "footpath_railings" ]
+        },
+        "images": {
+            "description": "The location of images for the object",
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "description": "A description of an image.",
+                        "type": "object",
+                        "properties": {
+                            "path": {
+                                "description": "The relative path to a png file.",
+                                "type": "string"
+                            },
+                            "x": {
+                                "description": "The image's x-offset.",
+                                "type": "integer"
+                            },
+                            "y": {
+                                "description": "The image's y-offset.",
+                                "type": "integer"
+                            },
+                            "format": {
+                                "description": "If set to `\"raw\"`, this image will not be run-length encoded (rare).",
+                                "type": "string"
+                            },
+                            "keepPalette": {
+                                "description": "If true, OpenRCT2 will assume the png file is already paletted correctly, and will just read the palette indexes without looking at colors.",
+                                "type": "boolean"
+                            }
+                        }
+                    },
+                    {
+                        "description": "The source of the image. This can be an indexed ranged into a DAT file (such as G1.DAT or an object .DAT). Otherwise, it can be a relative path to a png file (offsets default to 0,0).",
+                        "type": "string"
+                    }
+                ]
+            },
+            "examples": [
+                [
+                    {
+                        "path": "images/preview.png",
+                        "x": 0,
+                        "y": 0
+                    }
+                ],
+                ["$RCT2:OBJDATA/TLP.DAT[0..3]"],
+                [
+                    "$G1[5595]",
+                    "$G1[1663..1746]"
+                ]
+            ]
+        },
+        "strings": {
+            "description": "Contains the various strings used for the object",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Contains the name of the object in all the different supported languages",
+                    "type": "object",
+                    "properties": {
+                        "en-GB": {
+                            "description": "The string in English. Add other entries for other languages"
+                        }
+                    }
+                },
+                "description": {
+                    "description": "Contains a short description of the object in all the different supported languages",
+                    "type": "object",
+                    "properties": {
+                        "en-GB": {}
+                    }
+                },
+                "capacity": {
+                    "description": "For rides, this contains text describing the capacity in all the different supported languages",
+                    "type": "object",
+                    "properties": {
+                        "en-GB": {}
+                    }
+                }
+            },
+            "examples": [
+                {
+                    "name": { "en-GB": "Single Rail Roller Coaster Trains" },
+                    "description": { "en-GB": "Riders ride single file on a narrow monorail track as they race through tight inversions and direction changes" },
+                    "capacity": { "en-GB": "1 passenger per car" }
+                }
+            ]
+        },
+        "properties": {
+            "description": "This object contains all the properties of the object. What's included here depends on what type of object this is.",
+            "type": "object",
+            "properties": {}
+        }
+    },
+    "required": [ "id", "authors", "objectType" ]
+}

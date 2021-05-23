@@ -1,0 +1,1732 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "OpenRCT2 JSON Object Description",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "OpenRCT2 id of the object. This should be formatted as \"objectsource.objectname\" or similar. This value MUST be unique for all objects.",
+            "type": "string"
+        },
+        "authors": {
+            "description": "Array containing the authors of the object",
+            "type": "array",
+            "items": {
+                        "description": "The name of (one of) the author(s)",
+                        "type": "string"
+            },
+            "examples": [
+                [ "spacek531" ],
+                [ "Chris Sawyer", "Simon Foster" ]
+            ]
+        },
+        "version": {
+            "description": "Version of the object",
+            "type": "string",
+            "examples": [ "1.0" ]
+        },
+        "originalId": {
+            "description": "[Deprecated for new objects]. Represents the original DAT header. The three sections are the flags, name, and checksum. This shouldn't be used for new (not converted) objects",
+            "type": "string",
+            "examples": [ "00000000|RMCT2   |00003000", "0A188A80|4X4     |0DB8676C" ]
+        },
+        "sourceGame": {
+            "description": "The source(s) of the object. Either a single string or an array containing each source",
+            "anyOf": [
+                {
+                    "title": "Source String",
+                    "$ref": "#/definitions/sourceString"
+                },
+                {
+                    "title": "Array of Source Strings",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/sourceString"
+                    }
+                }
+            ]
+        },
+        "objectType": {
+            "description": "The type of the object",
+            "type": "string",
+            "enum": [ "ride", "footpath", "footpath_banner", "footpath_item", "scenery_small", "scenery_large", "scenery_wall", "scenery_group", "park_entrance", "water", "terrain_surface", "terrain_edge", "station", "music", "footpath_surface", "footpath_railings" ]
+        },
+        "images": {
+            "description": "The location of images for the object",
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "description": "An explanation about the purpose of this instance.",
+                        "type": "object",
+                        "properties": {
+                            "path": {
+                                "description": "An explanation about the purpose of this instance.",
+                                "type": "string"
+                            },
+                            "x": {
+                                "description": "An explanation about the purpose of this instance.",
+                                "type": "integer"
+                            },
+                            "y": {
+                                "description": "An explanation about the purpose of this instance.",
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "description": "An explanation about the purpose of this instance.",
+                        "type": "string",
+                        "examples": [ "" ]
+                    }
+                ]
+            },
+            "examples": [
+                [
+                    {
+                        "path": "images/preview.png",
+                        "x": 0,
+                        "y": 0
+                    },
+                    ""
+                ]
+            ]
+        },
+        "strings": {
+            "description": "Contains the various strings used for the object",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Contains the name of the object in all the different supported languages",
+                    "type": "object",
+                    "properties": {
+                        "en-GB": {
+                            "type": "string"
+                        }
+                    },
+                    "examples": [
+                        { "en-GB": "Single Rail Roller Coaster Trains" }
+                    ]
+                },
+                "description": {
+                    "description": "Contains a short description of the object in all the different supported languages",
+                    "type": "object",
+                    "properties": {
+                        "en-GB": {
+                            "type": "string"
+                        }
+                    },
+                    "examples": [
+                        { "en-GB": "Riders ride single file on a narrow monorail track as they race through tight inversions and direction changes" }
+                    ]
+                },
+                "capacity": {
+                    "description": "For rides, this contains text describing the capacity in all the different supported languages",
+                    "type": "object",
+                    "properties": {
+                        "en-GB": {
+                            "type": "string"
+                        }
+                    },
+                    "examples": [
+                        { "en-GB": "1 passenger per car" }
+                    ]
+                }
+            },
+            "examples": [
+                {
+                    "name": { "en-GB": "Single Rail Roller Coaster Trains" },
+                    "description": { "en-GB": "Riders ride single file on a narrow monorail track as they race through tight inversions and direction changes" },
+                    "capacity": { "en-GB": "1 passenger per car" }
+                }
+            ]
+        },
+        "properties": {
+            "description": "This object contains all the properties of the object",
+            "type": "object",
+            "properties": {}
+        }
+    },
+    "required": [ "id", "authors", "objectType" ],
+    "allOf": [
+        {
+            "title": "If Park Entrance",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "park_entrance" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "properties": {
+                            "scrollingMode": { "$ref": "#/definitions/scrollingMode" },
+                            "textHeight": { "$ref": "#/definitions/textHeight" }
+                        },
+                        "required": [ "scrollingMode", "textHeight" ]
+                    }
+                }
+            }
+        },
+        {
+            "title": "If Footpath",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "footpath" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "properties": {
+                            "supportType": { "$ref": "#/definitions/supportType" },
+                            "scrollingMode": { "$ref": "#/definitions/scrollingMode" },
+                            "noSlopeRailings": { "$ref": "#/definitions/noSlopeRailings" },
+                            "hasSupportImages": { "$ref": "#/definitions/hasSupportImages" },
+                            "hasElevatedPathImages": { "$ref": "#/definitions/hasElevatedPathImages" },
+                            "editorOnly": { "$ref": "#/definitions/editorOnly" }
+                        },
+                        "required": [ "supportType", "scrollingMode" ]
+                    }
+                }
+            }
+        },
+        {
+            "title": "If Footpath Railings",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "footpath_railings" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "properties": {
+                            "supportType": { "$ref": "#/definitions/supportType" },
+                            "scrollingMode": { "$ref": "#/definitions/scrollingMode" },
+                            "colour": { "$ref": "#/definitions/colour" },
+                            "hasSupportImages": { "$ref": "#/definitions/hasSupportImages" },
+                            "hasElevatedPathImages": { "$ref": "#/definitions/hasElevatedPathImages" }
+                        },
+                        "required": [ "supportType", "scrollingMode" ]
+                    }
+                }
+            }
+        },
+        {
+            "title": "If Footpath Surface",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "footpath_surface" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "properties": {
+                            "isQueue": { "$ref": "#/definitions/isQueue" },
+                            "noSlopeRailings": { "$ref": "#/definitions/noSlopeRailings" },
+                            "editorOnly": { "$ref": "#/definitions/editorOnly" }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "title": "If Music",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "music" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "properties": {
+                            "originalStyleId": { "$ref": "#/definitions/originalStyleId" },
+                            "rideTypes": { "$ref": "#/definitions/rideTypes" },
+                            "tracks": { "$ref": "#/definitions/tracks" }
+                        },
+                        "required": [ "tracks" ]
+                    }
+                }
+            }
+        },
+        {
+            "title": "If Ride",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "ride" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "properties": {
+                            "type": { "$ref": "#/definitions/type" },
+                            "category": { "$ref": "#/definitions/category" },
+                            "maxHeight": { "$ref": "#/definitions/maxHeight" },
+                            "carColours": { "$ref": "#/definitions/carColours" },
+                            "buildMenuPriority": { "$ref": "#/definitions/buildMenuPriority" },
+                            "noInversions": { "$ref": "#/definitions/noInversions" },
+                            "noBanking": { "$ref": "#/definitions/noBanking" },
+                            "playDepartSound": { "$ref": "#/definitions/playDepartSound" },
+                            "playSplashSound": { "$ref": "#/definitions/playSplashSound" },
+                            "playSplashSoundSlide": { "$ref": "#/definitions/playSplashSoundSlide" },
+                            "hasShelter": { "$ref": "#/definitions/hasShelter" },
+                            "limitAirTimeBonus": { "$ref": "#/definitions/limitAirTimeBonus" },
+                            "disableBreakdown": { "$ref": "#/definitions/disableBreakdown" },
+                            "noCollisionCrashes": { "$ref": "#/definitions/noCollisionCrashes" },
+                            "disablePainting": { "$ref": "#/definitions/disablePainting" }
+                        },
+                        "required": [ "type", "carColours" ]
+                    }
+                },
+                "if": {
+                    "description": "If Shop or Facility",
+                    "properties": {
+                        "properties": {
+                            "properties": {
+                                "type": {
+                                    "contains": {
+                                        "enum": [ "food_stall", "drink_stall", "shop", "information_kiosk", "toilets", "cash_machine", "first_aid" ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "then": {
+                    "description": "For a shop/facility",
+                    "properties": {
+                        "properties": {
+                            "properties": {
+                                "sells": { "$ref": "#/definitions/sells" }
+                            },
+                            "required": [ "sells" ]
+                        }
+                    }
+                },
+                "else": {
+                    "description": "For an actual ride",
+                    "properties": {
+                        "properties": {
+                            "properties": {
+                                "swingMode": { "$ref": "#/definitions/swingMode" },
+                                "rotationMode": { "$ref": "#/definitions/rotationMode" },
+                                "ratingMultipler": { "$ref": "#/definitions/ratingMultipler" },
+                                "minCarsPerTrain": { "$ref": "#/definitions/minCarsPerTrain" },
+                                "maxCarsPerTrain": { "$ref": "#/definitions/maxCarsPerTrain" },
+                                "carsPerFlatRide": { "$ref": "#/definitions/carsPerFlatRide" },
+                                "numEmptyCars": { "$ref": "#/definitions/numEmptyCars" },
+                                "defaultCar": { "$ref": "#/definitions/defaultCar" },
+                                "tabCar": { "$ref": "#/definitions/tabCar" },
+                                "tabScale": { "$ref": "#/definitions/tabScale" },
+                                "headCars": { "$ref": "#/definitions/headCars" },
+                                "tailCars": { "$ref": "#/definitions/tailCars" },
+                                "cars": { "$ref": "#/definitions/cars" }
+                            },
+                            "required": [ "cars" ]
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "title": "If Scenery Group",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "scenery_group" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "properties": {
+                            "priority": {"$ref": "#/definitions/priority"},
+                            "entertainerCostumes": {"$ref": "#/definitions/entertainerCostumes"},
+                            "entries": {"$ref": "#/definitions/entries"}
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "title": "If Footpath Banner",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "footpath_banner" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "properties": {
+                            "scrollingMode": {"$ref": "#/definitions/scrollingMode"},
+                            "price": {"$ref": "#/definitions/price"},
+                            "hasPrimaryColour": {"$ref": "#/definitions/hasPrimaryColour"},
+                            "sceneryGroup": {"$ref": "#/definitions/sceneryGroup"}
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "title": "If Footpath Item",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "footpath_item" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "properties": {
+                            "renderAs": {"$ref": "#/definitions/renderAs"},
+                            "price": {"$ref": "#/definitions/price"},
+                            "cursor": {"$ref": "#/definitions/cursor"},
+                            "isBin": {"$ref": "#/definitions/isBin"},
+                            "isBench": {"$ref": "#/definitions/isBench"},
+                            "isBreakable": {"$ref": "#/definitions/isBreakable"},
+                            "isLamp": {"$ref": "#/definitions/isLamp"},
+                            "isJumpingFountainWater": {"$ref": "#/definitions/isJumpingFountainWater"},
+                            "isJumpingFountainSnow": {"$ref": "#/definitions/isJumpingFountainSnow"},
+                            "isAllowedOnQueue": {"$ref": "#/definitions/isAllowedOnQueue"},
+                            "isAllowedOnSlope": {"$ref": "#/definitions/isAllowedOnSlope"},
+                            "isTelevision": {"$ref": "#/definitions/isTelevision"},
+                            "sceneryGroup": {"$ref": "#/definitions/sceneryGroup"}
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "title": "If Large Scenery",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "scenery_large" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "properties": {
+                            "price": {"$ref": "#/definitions/price"},
+                            "cursor": {"$ref": "#/definitions/cursor"},
+                            "removalPrice": {"$ref": "#/definitions/removalPrice"},
+                            "scrollingMode": {"$ref": "#/definitions/scrollingMode"},
+                            "hasPrimaryColour": {"$ref": "#/definitions/hasPrimaryColour"},
+                            "hasSecondaryColour": {"$ref": "#/definitions/hasSecondaryColour"},
+                            "isAnimated": {"$ref": "#/definitions/isAnimatedLarge"},
+                            "isPhotogenic": {"$ref": "#/definitions/isPhotogenic"},
+                            "tiles": {"$ref": "#/definitions/tiles"},
+                            "3dFont": {"$ref": "#/definitions/3dFont"},
+                            "sceneryGroup": {"$ref": "#/definitions/sceneryGroup"}
+                        },
+                        "required": [ "scrollingMode", "textHeight" ]
+                    }
+                }
+            }
+        },
+        {
+            "title": "If Small Scenery",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "scenery_small" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "properties": {
+                            "height": {"$ref": "#/definitions/height"},
+                            "cursor": {"$ref": "#/definitions/cursor"},
+                            "price": {"$ref": "#/definitions/price"},
+                            "removalPrice": {"$ref": "#/definitions/removalPrice"},
+                            "animationDelay": {"$ref": "#/definitions/animationDelay"},
+                            "animationMask": {"$ref": "#/definitions/animationMask"},
+                            "numFrames": {"$ref": "#/definitions/numFrames"},
+                            "SMALL_SCENERY_FLAG_VOFFSET_CENTRE":  {"$ref": "#/definitions/SMALL_SCENERY_FLAG_VOFFSET_CENTRE"},
+                            "requiresFlatSurface":  {"$ref": "#/definitions/requiresFlatSurface"},
+                            "isRotatable":  {"$ref": "#/definitions/isRotatable"},
+                            "isAnimated":  {"$ref": "#/definitions/isAnimated"},
+                            "canWither":  {"$ref": "#/definitions/canWither"},
+                            "canBeWatered":  {"$ref": "#/definitions/canBeWatered"},
+                            "hasOverlayImage":  {"$ref": "#/definitions/hasOverlayImage"},
+                            "hasGlass":  {"$ref": "#/definitions/hasGlass"},
+                            "hasPrimaryColour":  {"$ref": "#/definitions/hasPrimaryColour"},
+                            "SMALL_SCENERY_FLAG_FOUNTAIN_SPRAY_1":  {"$ref": "#/definitions/SMALL_SCENERY_FLAG_FOUNTAIN_SPRAY_1"},
+                            "SMALL_SCENERY_FLAG_FOUNTAIN_SPRAY_4":  {"$ref": "#/definitions/SMALL_SCENERY_FLAG_FOUNTAIN_SPRAY_4"},
+                            "isClock":  {"$ref": "#/definitions/isClock"},
+                            "SMALL_SCENERY_FLAG_SWAMP_GOO":  {"$ref": "#/definitions/SMALL_SCENERY_FLAG_SWAMP_GOO"},
+                            "SMALL_SCENERY_FLAG17":  {"$ref": "#/definitions/SMALL_SCENERY_FLAG17"},
+                            "isStackable":  {"$ref": "#/definitions/isStackable"},
+                            "prohibitWalls":  {"$ref": "#/definitions/prohibitWalls"},
+                            "hasSecondaryColour":  {"$ref": "#/definitions/hasSecondaryColour"},
+                            "hasNoSupports":  {"$ref": "#/definitions/hasNoSupports"},
+                            "SMALL_SCENERY_FLAG_VISIBLE_WHEN_ZOOMED":  {"$ref": "#/definitions/SMALL_SCENERY_FLAG_VISIBLE_WHEN_ZOOMED"},
+                            "SMALL_SCENERY_FLAG_COG":  {"$ref": "#/definitions/SMALL_SCENERY_FLAG_COG"},
+                            "allowSupportsAbove":  {"$ref": "#/definitions/allowSupportsAbove"},
+                            "supportsHavePrimaryColour":  {"$ref": "#/definitions/supportsHavePrimaryColour"},
+                            "SMALL_SCENERY_FLAG27":  {"$ref": "#/definitions/SMALL_SCENERY_FLAG27"},
+                            "isTree":  {"$ref": "#/definitions/isTree"},
+                            "sceneryGroup": {"$ref": "#/definitions/sceneryGroup"},
+                            "shape": {"$ref": "#/definitions/shape"}
+                        },
+                        "required": []
+                    }
+                }
+            }
+        },
+        {
+            "title": "If Wall",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "scenery_wall" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "required": [ "scrollingMode", "textHeight" ]
+                    }
+                }
+            }
+        },
+        {
+            "title": "If Station",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "station" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "required": [ "scrollingMode", "textHeight" ]
+                    }
+                }
+            }
+        },
+        {
+            "title": "If Terrain Edge",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "terrain_edge" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "required": [ "scrollingMode", "textHeight" ]
+                    }
+                }
+            }
+        },
+        {
+            "title": "If Terrain Surface",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "terrain_surface" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "required": [ "scrollingMode", "textHeight" ]
+                    }
+                }
+            }
+        },
+        {
+            "title": "If Water",
+            "if": {
+                "properties": {
+                    "objectType": { "const": "water" }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "required": [ "scrollingMode", "textHeight" ]
+                    }
+                }
+            }
+        }
+    ],
+    "definitions": {
+        "sourceString": {
+            "title": "Source String",
+            "type": "string",
+            "enum": [ "rct1", "rct1aa", "rct1ll", "rct2", "rct2ww", "rct2tt", "official", "custom" ]
+        },
+        "colour": {
+            "description": "Object color",
+            "type": "string",
+            "enum": [
+                "black",
+                "grey",
+                "white",
+                "dark_purple",
+                "light_purple",
+                "bright_purple",
+                "dark_blue",
+                "light_blue",
+                "icy_blue",
+                "teal",
+                "aquamarine",
+                "saturated_green",
+                "dark_green",
+                "moss_green",
+                "bright_green",
+                "olive_green",
+                "dark_olive_green",
+                "bright_yellow",
+                "yellow",
+                "dark_yellow",
+                "light_orange",
+                "dark_orange",
+                "light_brown",
+                "saturated_brown",
+                "dark_brown",
+                "salmon_pink",
+                "bordeaux_red",
+                "saturated_red",
+                "bright_red",
+                "dark_pink",
+                "bright_pink",
+                "light_pink"
+            ]
+        },
+        "type": {
+            "description": "Array of ride types of this object. Currently only up to 3 are used",
+            "type": "array",
+            "items": [
+                {
+                    "enum": [
+                        "spiral_rc",
+                        "stand_up_rc",
+                        "suspended_swinging_rc",
+                        "inverted_rc",
+                        "junior_rc",
+                        "miniature_railway",
+                        "monorail",
+                        "mini_suspended_rc",
+                        "boat_hire",
+                        "wooden_wild_mouse",
+                        "steeplechase",
+                        "car_ride",
+                        "launched_freefall",
+                        "bobsleigh_rc",
+                        "observation_tower",
+                        "looping_rc",
+                        "dinghy_slide",
+                        "mine_train_rc",
+                        "chairlift",
+                        "corkscrew_rc",
+                        "maze",
+                        "spiral_slide",
+                        "go_karts",
+                        "log_flume",
+                        "river_rapids",
+                        "dodgems",
+                        "swinging_ship",
+                        "swinging_inverter_ship",
+                        "food_stall",
+                        "drink_stall",
+                        "shop",
+                        "merry_go_round",
+                        "information_kiosk",
+                        "toilets",
+                        "ferris_wheel",
+                        "motion_simulator",
+                        "3d_cinema",
+                        "top_spin",
+                        "space_rings",
+                        "reverse_freefall_rc",
+                        "lift",
+                        "vertical_drop_rc",
+                        "cash_machine",
+                        "twist",
+                        "haunted_house",
+                        "first_aid",
+                        "circus",
+                        "ghost_train",
+                        "twister_rc",
+                        "wooden_rc",
+                        "side_friction_rc",
+                        "steel_wild_mouse",
+                        "multi_dimension_rc",
+                        "flying_rc",
+                        "virginia_reel",
+                        "splash_boats",
+                        "mini_helicopters",
+                        "lay_down_rc",
+                        "suspended_monorail",
+                        "reverser_rc",
+                        "heartline_twister_rc",
+                        "mini_golf",
+                        "giga_rc",
+                        "roto_drop",
+                        "flying_saucers",
+                        "crooked_house",
+                        "monorail_cycles",
+                        "compact_inverted_rc",
+                        "water_coaster",
+                        "air_powered_vertical_rc",
+                        "inverted_hairpin_rc",
+                        "magic_carpet",
+                        "submarine_ride",
+                        "river_rafts",
+                        "enterprise",
+                        "inverted_impulse_rc",
+                        "mini_rc",
+                        "mine_ride",
+                        "lim_launched_rc",
+                        "hypercoaster",
+                        "hyper_twister",
+                        "monster_trucks",
+                        "spinning_wild_mouse",
+                        "classic_mini_rc",
+                        "hybrid_rc",
+                        "single_rail_rc"
+                    ]
+                }
+            ]
+        },
+        "maxHeight": {
+            "description": "Maximum height of the ride (if not set, or set to 0, uses the hardcoded value for the ridetype)",
+            "type": "integer"
+        },
+        "carColours": {
+            "description": "An array of preset color schemes for the ride. Currently, a ride can either have multiple presets (up to 254) with a single color scheme each (which are randomly chosen from when a ride is built), or it can have a single preset that has different color schemes for each train (car?).   \nNote: If there is more than one preset, only the first color scheme in each preset is used.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$comment": "preset item",
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                    "$comment": "color scheme tuple",
+                    "type": "array",
+                    "items": [
+                        { "$ref": "#/definitions/colour" },
+                        { "$ref": "#/definitions/colour" },
+                        { "$ref": "#/definitions/colour" }
+                    ]
+                }
+            },
+            "examples": [
+                [
+                    [
+                        [ "bright_red", "white", "light_brown" ]
+                    ],
+                    [
+                        [ "dark_green", "bright_green", "white" ]
+                    ]
+                ]
+            ]
+        },
+        "scrollingMode": {
+            "description": "Scrolling mode of the sign",
+            "type": "integer"
+        },
+        "textHeight": {
+            "description": "Height of the sign text",
+            "type": "integer"
+        },
+        "supportType": {
+            "description": "Type of supports used for path (0=Box,1=Pole)",
+            "type": [ "string", "integer" ],
+            "enum": [ "pole", "box", 1, 0 ],
+            "default": "box"
+        },
+        "hasSupportImages": {
+            "description": "True if object has images for path supports",
+            "type": "boolean",
+            "default": false
+        },
+        "hasElevatedPathImages": {
+            "description": "True if object has images for elevated path",
+            "type": "boolean",
+            "default": false
+        },
+        "editorOnly": {
+            "description": "True if path is normally only available in the scenario editor",
+            "type": "boolean",
+            "default": false
+        },
+        "noSlopeRailings": {
+            "description": "True if path has no railings on slopes",
+            "type": "boolean",
+            "default": false
+        },
+        "isQueue": {
+            "description": "True if path surface is for a queue",
+            "type": "boolean",
+            "default": false
+        },
+        "originalStyleId": {
+            "description": "Original Music Style ID (used for most music except for merry_go_round). Original list:  \n```\nMUSIC_STYLE_DODGEMS_BEAT,  \nMUSIC_STYLE_FAIRGROUND_ORGAN,  \nMUSIC_STYLE_ROMAN_FANFARE,  \nMUSIC_STYLE_ORIENTAL,  \nMUSIC_STYLE_MARTIAN,  \nMUSIC_STYLE_JUNGLE_DRUMS,  \nMUSIC_STYLE_EGYPTIAN,  \nMUSIC_STYLE_TOYLAND,  \nMUSIC_STYLE_CIRCUS_SHOW,  \nMUSIC_STYLE_SPACE,  \nMUSIC_STYLE_HORROR,  \nMUSIC_STYLE_TECHNO,  \nMUSIC_STYLE_GENTLE,  \nMUSIC_STYLE_SUMMER,  \nMUSIC_STYLE_WATER,  \nMUSIC_STYLE_WILD_WEST,  \nMUSIC_STYLE_JURASSIC,  \nMUSIC_STYLE_ROCK,  \nMUSIC_STYLE_RAGTIME,  \nMUSIC_STYLE_FANTASY,  \nMUSIC_STYLE_ROCK_STYLE_2,  \nMUSIC_STYLE_ICE,  \nMUSIC_STYLE_SNOW,  \nMUSIC_STYLE_CUSTOM_MUSIC_1,  \nMUSIC_STYLE_CUSTOM_MUSIC_2,  \nMUSIC_STYLE_MEDIEVAL,  \nMUSIC_STYLE_URBAN,  \nMUSIC_STYLE_ORGAN,  \nMUSIC_STYLE_MECHANICAL,  \nMUSIC_STYLE_MODERN,  \nMUSIC_STYLE_PIRATES,  \nMUSIC_STYLE_ROCK_STYLE_3,  \nMUSIC_STYLE_CANDY_STYLE  \n```",
+            "type": "integer"
+        },
+        "rideTypes": {
+            "description": "Array of ride types this music can be used for. If this is not included, then music is available for all rides except merry-go-round",
+            "type": "array",
+            "items": [
+                {
+                    "enum": [
+                        "spiral_rc",
+                        "stand_up_rc",
+                        "suspended_swinging_rc",
+                        "inverted_rc",
+                        "junior_rc",
+                        "miniature_railway",
+                        "monorail",
+                        "mini_suspended_rc",
+                        "boat_hire",
+                        "wooden_wild_mouse",
+                        "steeplechase",
+                        "car_ride",
+                        "launched_freefall",
+                        "bobsleigh_rc",
+                        "observation_tower",
+                        "looping_rc",
+                        "dinghy_slide",
+                        "mine_train_rc",
+                        "chairlift",
+                        "corkscrew_rc",
+                        "maze",
+                        "spiral_slide",
+                        "go_karts",
+                        "log_flume",
+                        "river_rapids",
+                        "dodgems",
+                        "swinging_ship",
+                        "swinging_inverter_ship",
+                        "food_stall",
+                        "drink_stall",
+                        "shop",
+                        "merry_go_round",
+                        "information_kiosk",
+                        "toilets",
+                        "ferris_wheel",
+                        "motion_simulator",
+                        "3d_cinema",
+                        "top_spin",
+                        "space_rings",
+                        "reverse_freefall_rc",
+                        "lift",
+                        "vertical_drop_rc",
+                        "cash_machine",
+                        "twist",
+                        "haunted_house",
+                        "first_aid",
+                        "circus",
+                        "ghost_train",
+                        "twister_rc",
+                        "wooden_rc",
+                        "side_friction_rc",
+                        "steel_wild_mouse",
+                        "multi_dimension_rc",
+                        "flying_rc",
+                        "virginia_reel",
+                        "splash_boats",
+                        "mini_helicopters",
+                        "lay_down_rc",
+                        "suspended_monorail",
+                        "reverser_rc",
+                        "heartline_twister_rc",
+                        "mini_golf",
+                        "giga_rc",
+                        "roto_drop",
+                        "flying_saucers",
+                        "crooked_house",
+                        "monorail_cycles",
+                        "compact_inverted_rc",
+                        "water_coaster",
+                        "air_powered_vertical_rc",
+                        "inverted_hairpin_rc",
+                        "magic_carpet",
+                        "submarine_ride",
+                        "river_rafts",
+                        "enterprise",
+                        "inverted_impulse_rc",
+                        "mini_rc",
+                        "mine_ride",
+                        "lim_launched_rc",
+                        "hypercoaster",
+                        "hyper_twister",
+                        "monster_trucks",
+                        "spinning_wild_mouse",
+                        "classic_mini_rc",
+                        "hybrid_rc",
+                        "single_rail_rc"
+                    ]
+                }
+            ]
+        },
+        "tracks": {
+            "description": "Array of the tracks included in this music object (usually just one, but merry_go_round, for example, has multiple)",
+            "type": "array",
+            "properties": {
+                "source": {
+                    "description": "Source location of the track",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the track",
+                    "type": "string"
+                },
+                "composer": {
+                    "description": "Name of the composer of the track",
+                    "type": "string"
+                }
+            }
+        },
+        "sells": {
+            "description": "The item(s) sold by the shop",
+            "type": [ "array", "string" ],
+            "anyOf": [
+                {
+                    "enum": [
+                        "burger",
+                        "chips",
+                        "ice_cream",
+                        "candyfloss",
+                        "pizza",
+                        "popcorn",
+                        "hot_dog",
+                        "tentacle",
+                        "toffee_apple",
+                        "doughnut",
+                        "chicken",
+                        "pretzel",
+                        "funnel_cake",
+                        "beef_noodles",
+                        "fried_rice_noodles",
+                        "wonton_soup",
+                        "meatball_soup",
+                        "sub_sandwich",
+                        "cookie",
+                        "roast_sausage",
+                        "drink",
+                        "coffee",
+                        "lemonade",
+                        "chocolate",
+                        "iced_tea",
+                        "fruit_juice",
+                        "soybean_milk",
+                        "sujeonggwa",
+                        "balloon",
+                        "toy",
+                        "map",
+                        "photo",
+                        "umbrella",
+                        "voucher",
+                        "hat",
+                        "tshirt",
+                        "sunglasses"
+                    ]
+                },
+                {
+                    "items": {
+                        "enum": [
+                            "burger",
+                            "chips",
+                            "ice_cream",
+                            "candyfloss",
+                            "pizza",
+                            "popcorn",
+                            "hot_dog",
+                            "tentacle",
+                            "toffee_apple",
+                            "doughnut",
+                            "chicken",
+                            "pretzel",
+                            "funnel_cake",
+                            "beef_noodles",
+                            "fried_rice_noodles",
+                            "wonton_soup",
+                            "meatball_soup",
+                            "sub_sandwich",
+                            "cookie",
+                            "roast_sausage",
+                            "drink",
+                            "coffee",
+                            "lemonade",
+                            "chocolate",
+                            "iced_tea",
+                            "fruit_juice",
+                            "soybean_milk",
+                            "sujeonggwa",
+                            "balloon",
+                            "toy",
+                            "map",
+                            "photo",
+                            "umbrella",
+                            "voucher",
+                            "hat",
+                            "tshirt",
+                            "sunglasses"
+                        ]
+                    }
+                }
+            ]
+        },
+        "swingMode": {
+            "description": "If set to 1 or 2, indicates alternate swing modes that are used for some rides",
+            "type": "integer",
+            "enum": [ 0, 1, 2 ],
+            "default": 0
+        },
+        "rotationMode": {
+            "description": "If set to 1, indicates alternate rotation modes used for twist, if set to 2, indicates alternate rotation mode used for enterprise",
+            "type": "integer",
+            "enum": [ 0, 1, 2 ],
+            "default": 0
+        },
+        "ratingMultipler": {
+            "description": "Additional rating multiplier(s) for this specific ride subtype (this is separate from the rating multipliers that are hardcoded for each ride type)",
+            "type": "object",
+            "properties": {
+                "excitement": { "type": "integer" },
+                "intensity": { "type": "integer" },
+                "nausea": { "type": "integer" }
+            }
+        },
+        "carsPerFlatRide": {
+            "description": "The number of cars, for a flat ride",
+            "type": "integer",
+            "default": 255
+        },
+        "tabCar": {
+            "description": "The index of the car that should show in the gui tab for this ride (0 if not specified)",
+            "type": "number",
+            "default": 0
+        },
+        "tabScale": {
+            "description": "If <= 0.5, this will scale the size of the tab preview in half",
+            "type": "number"
+        },
+        "numEmptyCars": {
+            "description": "The number of \"zero\" cars in the train. That is, cars that do not hold any guests",
+            "type": "integer",
+            "minimum": 0,
+            "default": 0
+        },
+        "minCarsPerTrain": {
+            "description": "Minimum number of cars that can be in a train",
+            "type": "integer",
+            "examples": [ 4 ],
+            "default": 1
+        },
+        "maxCarsPerTrain": {
+            "description": "Maximum number of cars that can be in a train",
+            "type": "integer",
+            "examples": [ 12 ],
+            "default": 1
+        },
+        "defaultCar": {
+            "description": "Index of the car that should be used as the default car for this ride. In other words, this is the normal car that appears throughout the train wherever there isn't a special (i.e. front or rear) car  \n0 if not specified",
+            "type": "integer",
+            "examples": [ 1 ],
+            "default": 0
+        },
+        "tailCars": {
+            "description": "Index of the car that should be used as the tail car, if any (the code supports listing an array instead of just a single index here, but currently only the first index listed is used)",
+            "type": "integer"
+        },
+        "headCars": {
+            "description": "The index(es) of up to three cars that should be used to fill the front of a train",
+            "type": [ "array", "number" ],
+            "items": { "type": "integer" },
+            "examples": [ 0 ]
+        },
+        "category": {
+            "description": "[Deprecated] Ride category is now determined from the type",
+            "type": "string",
+            "examples": [ "rollercoaster" ]
+        },
+        "cars": {
+            "description": "The cars in this ride",
+            "anyOf": [
+                {
+                    "title": "A car object",
+                    "$ref": "#/definitions/carItem"
+                },
+                {
+                    "title": "Array of car objects",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/carItem"
+                    }
+                }
+            ]
+        },
+        "carItem": {
+            "properties": {
+                "rotationFrameMask": {
+                    "description": "A bitmask indicating which rotation frames this car has, for rendering spinning car in the UI?",
+                    "type": "integer",
+                    "examples": [ 31 ]
+                },
+                "spacing": {
+                    "description": "The space taken up by this car (I have no idea what the units are tbh)",
+                    "type": "integer",
+                    "examples": [ 146000 ]
+                },
+                "mass": {
+                    "description": "Mass of this car",
+                    "type": "integer",
+                    "examples": [ 650 ]
+                },
+                "tabOffset": {
+                    "description": "If used, adds a vertical offset to this car when rendered in the UI",
+                    "type": "integer"
+                },
+                "numSeats": {
+                    "description": "Number of seats that this car holds",
+                    "type": "integer",
+                    "examples": [ 1 ]
+                },
+                "seatsInPairs": {
+                    "description": "If set, indicates that guests sit in this car in pairs",
+                    "type": "boolean"
+                },
+                "spriteWidth": {
+                    "description": "For manually entering the sprite width for this car. This is only used if VEHICLE_ENTRY_FLAG_10 is set, which seems to only be for non-tracked-rides (?), otherwide this value is calculated.",
+                    "type": "integer"
+                },
+                "spriteHeightNegative": {
+                    "description": "For manually entering the sprite height below the origin for this car. This is only used if VEHICLE_ENTRY_FLAG_10 is set, which seems to only be for non-tracked-rides (?), otherwide this value is calculated.",
+                    "type": "integer"
+                },
+                "spriteHeightPositive": {
+                    "description": "For manually entering the sprite height above the origin for this car. This is only used if VEHICLE_ENTRY_FLAG_10 is set, which seems to only be for non-tracked-rides (?), otherwide this value is calculated.",
+                    "type": "integer"
+                },
+                "animation": {
+                    "description": "Indicates a special animation mode to use for this car.  \n  \n1: Miniature Railway  \n2: Swan boats  \n3: Canoes  \n4: Row boats  \n5: Water tricycles  \n6: Observation tower  \n7: Helicars  \n8: Monorail cycles  \n9: Multidimensional Coaster",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9,
+                    "default": 0
+                },
+                "baseNumFrames": {
+                    "description": "The number of frames (angles) of rotation when this car is flat. This number is always calculated now so it shouldn't be specified",
+                    "type": "integer"
+                },
+                "numImages": {
+                    "description": "The total number of sprites for this car. This number is always calculated now so it shouldn't be specified",
+                    "type": "integer"
+                },
+                "numSeatRows": {
+                    "type": "integer",
+                    "examples": [ 1 ]
+                },
+                "spinningInertia": { "type": "integer" },
+                "spinningFriction": { "type": "integer" },
+                "frictionSoundId": {
+                    "type": "integer",
+                    "examples": [ 57 ]
+                },
+                "logFlumeReverserVehicleType": {
+                    "type": "integer",
+                    "examples": [ 0 ]
+                },
+                "soundRange": { "type": "integer" },
+                "doubleSoundFrequency": { "type": "integer" },
+                "poweredAcceleration": { "type": "integer" },
+                "poweredMaxSpeed": { "type": "integer" },
+                "carVisual": { "type": "integer" },
+                "effectVisual": { "type": "integer" },
+                "drawOrder": {
+                    "type": "integer",
+                    "examples": [ 7 ]
+                },
+                "numVerticalFramesOverride": {
+                    "description": "When VEHICLE_ENTRY_FLAG_OVERRIDE_NUM_VERTICAL_FRAMES is set, this value overrides the calculated value",
+                    "type": "integer"
+                },
+                "loadingPositions": {
+                    "description": "A list of the different loading positions for this car",
+                    "type": "array",
+                    "items": {
+                        "type": [ "array", "integer" ],
+                        "items": { "type": "integer" }
+                    }
+                },
+                "loadingWaypoints": {
+                    "description": "A list of the different loading waypoints guests should use for this car",
+                    "type": "array",
+                    "items": {
+                        "type": [ "array", "integer" ],
+                        "items": { "type": "integer" }
+                    }
+                },
+                "numSegments": {
+                    "description": "If loadingWaypoints is used, the number of segments",
+                    "type": "integer"
+                },
+                "frames": {
+                    "description": "A list of the different sets of sprites that this car has",
+                    "type": "object",
+                    "properties": {
+                        "flat": {
+                            "description": "If set, this car has sprites for flat track",
+                            "type": "boolean"
+                        },
+                        "gentleSlopes": {
+                            "description": "If set, this car has sprites for gentle slopes",
+                            "type": "boolean"
+                        },
+                        "steepSlopes": {
+                            "description": "If set, this car has sprites for steep slopes",
+                            "type": "boolean"
+                        },
+                        "verticalSlopes": {
+                            "description": "If set, this car has sprites for vertical slopes",
+                            "type": "boolean"
+                        },
+                        "diagonalSlopes": {
+                            "description": "If set, this car has sprites for diagonal slopes",
+                            "type": "boolean"
+                        },
+                        "flatBanked": {
+                            "description": "If set, this car has sprites for banked, flat track",
+                            "type": "boolean"
+                        },
+                        "inlineTwists": {
+                            "description": "If set, this car has sprites for inline twists",
+                            "type": "boolean"
+                        },
+                        "flatToGentleSlopeBankedTransitions": {
+                            "description": "If set, this car has sprites for flat track to banked gentle sloped track",
+                            "type": "boolean"
+                        },
+                        "diagonalGentleSlopeBankedTransitions": {
+                            "description": "If set, this car has sprites for diagonal banked to unbanked, gentle sloped track transitions",
+                            "type": "boolean"
+                        },
+                        "gentleSlopeBankedTransitions": {
+                            "description": "If set, this car has sprites for banked to unbanked, gentle sloped track transitions",
+                            "type": "boolean"
+                        },
+                        "gentleSlopeBankedTurns": {
+                            "description": "If set, this car has sprites for banked gentle sloping turns",
+                            "type": "boolean"
+                        },
+                        "flatToGentleSlopeWhileBankedTransitions": {
+                            "description": "If set, this car has sprites for banked flat track to banked gentle slope",
+                            "type": "boolean"
+                        },
+                        "corkscrews": {
+                            "description": "If set, this car has sprites for corkscrews",
+                            "type": "boolean"
+                        },
+                        "restraintAnimation": {
+                            "description": "If set, this car has sprites for restraints opening and closing",
+                            "type": "boolean"
+                        },
+                        "curvedLiftHill": {
+                            "description": "If set, this car has sprites for a curved lift-hill",
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "isPoweredRideWithUnrestrictedGravity": {"description": "Set on powered vehicles that do not slow down when going down a hill", "type": "boolean" }, 
+                "hasNoUpstopWheels": {"description": "", "type": "boolean" }, 
+                "hasNoUpstopWheelsBobsleigh": {"description": "", "type": "boolean" }, 
+                "isMiniGolf": {"description": "", "type": "boolean" }, 
+                "isReverserBogie": {"description": "", "type": "boolean" }, 
+                "isReverserPassengerCar": {"description": "", "type": "boolean" }, 
+                "hasInvertedSpriteSet": {"description": "Set on vehicles that support running inverted for extended periods of time, i.e. the Flying, Lay-down and Multi-dimension RCs.", "type": "boolean" }, 
+                "hasDodgemInUseLights": {"description": "When set the vehicle has an additional frame for when in use. Used only by dodgems.", "type": "boolean" }, 
+                "hasAdditionalColour2": {"description": "", "type": "boolean" }, 
+                "recalculateSpriteBounds": {"description": "Only used during loading of the object", "type": "boolean" }, 
+                "VEHICLE_ENTRY_FLAG_11": {"description": "Sets VEHICLE_ENTRY_FLAG_USE_16_ROTATION_FRAMES. Instead of the default 32 rotation frames. Only used for boat hire and works only for non sloped sprites.", "type": "boolean" }, 
+                "overrideNumberOfVerticalFrames": {"description": "Setting this will cause the game to use numVerticalFramesOverride instead of calculating it", "type": "boolean" }, 
+                "spriteBoundsIncludeInvertedSet": {"description": "Used together for recalculateSpriteBounds if hasInvertedSpriteSet is also set so that the inverted sprites are included in the function that recalculates the sprite bounds.", "type": "boolean" }, 
+                "hasAdditionalSpinningFrames": {"description": "16x additional frames for vehicle. A spinning item with additional frames must always face forward to load/unload. Spinning without can load/unload at 4 rotations.", "type": "boolean" }, 
+                "isLift": {"description": "", "type": "boolean" }, 
+                "hasAdditionalColour1": {"description": "", "type": "boolean" }, 
+                "hasSwinging": {"description": "", "type": "boolean" }, 
+                "hasSpinning": {"description": "", "type": "boolean" }, 
+                "isPowered": {"description": "", "type": "boolean" }, 
+                "hasScreamingRiders": {"description": "", "type": "boolean" }, 
+                "useSuspendedSwing": {"description": "Suspended swinging coaster, or bobsleigh if SLIDE_SWING is also enabled.", "type": "boolean" }, 
+                "useBoatHireCollisionDetection": {"description": "", "type": "boolean" }, 
+                "hasVehicleAnimation": {"description": "Set on animated vehicles like the Multi-dimension coaster trains, Miniature Railway locomotives and Helicycles.", "type": "boolean" }, 
+                "hasRiderAnimation": {"description": "Set when the animation updates rider sprite positions.", "type": "boolean" }, 
+                "useWoodenWildMouseSwing": {"description": "", "type": "boolean" }, 
+                "useSlideSwing": {"description": "Set on dingy slides. They have there own swing value calculations and have a different amount of images. Also set on bobsleighs together with the SUSPENDED_SWING flag.", "type": "boolean" }, 
+                "isChairlift": {"description": "", "type": "boolean" }, 
+                "isWaterRide": {"description": "Set on rides where water would provide continuous propulsion", "type": "boolean" }, 
+                "isGoKart": {"description": "", "type": "boolean" }, 
+                "useDodgemCarPlacement": {"description": "", "type": "boolean" }
+            }
+        },
+        "buildMenuPriority": {
+            "description": "For rides that do no list their subtypes separately, this number describes the priority order for which subtype should show for the generic ride type in the build menu. Of all the subtypes that are available and researched, whichever has the highest buildMenuPriority will show as representative of the generic ride type.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+        },
+        "noInversions": {
+            "description": "Flagged if the ride does not support inversions",
+            "type": "boolean",
+            "default": false
+        },
+        "noBanking": {
+            "description": "Flagged if the ride does not support banking",
+            "type": "boolean",
+            "default": false
+        },
+        "playDepartSound": {
+            "description": "Flagged if the ride plays a departure sound when departing the station. depending on sound_range setting, plays Tram or Train departing sound.",
+            "type": "boolean",
+            "default": false
+        },
+        "playSplashSound": {
+            "description": "Flagged if the ride should play a splashing sound on down to flat elements",
+            "type": "boolean",
+            "default": false
+        },
+        "playSplashSoundSlide": {
+            "description": "Flagged if the ride should play a splashing sound when entering a water channel, for water coasters. Has no effect if playSplashSound is enabled.  \nNote: Internally, water channel track is coded as \"covered\" track, so if this flag is set for a ride running on a track that supports covered pieces, it will play a splash sound when entering a covered section of track.",
+            "type": "boolean",
+            "default": false
+        },
+        "hasShelter": {
+            "description": "Flagged if the ride is covered (for example, monorail cars are covered)  \n\nNote that there are some ride types in vanilla RCT2 that seem to have this bit set illogically. Pickup-trucks did not have this set, and the uncovered ski lift cars did have these set. These have been changed in OpenRCT2 to make more sense.",
+            "type": "boolean",
+            "default": false
+        },
+        "limitAirTimeBonus": {
+            "description": "Flagged if the ride should have a hard cap on how much bonus it gets from airtime. This is only set for heartline-twister coasters, and makes it so that a max of ~2 seconds of airtime can give an excitement bonus.",
+            "type": "boolean",
+            "default": false
+        },
+        "disableBreakdown": {
+            "description": "Flagged if the ride does not break down",
+            "type": "boolean",
+            "default": false
+        },
+        "noCollisionCrashes": {
+            "description": "Flagged if the ride does not crash when vehicles collide",
+            "type": "boolean",
+            "default": false
+        },
+        "disablePainting": {
+            "description": "Flagged if the ride does not support recolouring",
+            "type": "boolean",
+            "default": false
+        },
+        "priority": {
+            "description": "This number determines the sorting priority of this scenery group in the menu",
+            "type": "integer"
+        },
+        "entertainerCostumes": {
+            "description": "List of entertainer costumes that are included in this scenery group",
+            "type": "array",
+            "items": {
+                "enum": [
+                    "panda",
+                    "tiger",
+                    "elephant",
+                    "roman",
+                    "gorilla",
+                    "snowman",
+                    "knight",
+                    "astronaut",
+                    "bandit",
+                    "sheriff",
+                    "pirate"
+                ]
+            }
+        },
+        "entries": {
+            "description": "List of the objects included in this scenery group, by `id`",
+            "type": "array",
+            "items": {
+                "description": "OpenRCT2 `id` of the included object.",
+                "type": "string"
+            }
+        },
+        "height": {
+            "description": "Height of the object, where there are 8 units per height step (for reference, a \"quarter\" height wall is one step = 8 units high). Therefore this value is generally a multiple of eight.",
+            "type": "integer"
+        },
+        "cursor": {
+            "description": "Cursor icon to use when placing this object",
+            "type": "string",
+            "enum": [
+                "CURSOR_BLANK",
+                "CURSOR_UP_ARROW",
+                "CURSOR_UP_DOWN_ARROW",
+                "CURSOR_HAND_POINT",
+                "CURSOR_ZZZ",
+                "CURSOR_DIAGONAL_ARROWS",
+                "CURSOR_PICKER",
+                "CURSOR_TREE_DOWN",
+                "CURSOR_FOUNTAIN_DOWN",
+                "CURSOR_STATUE_DOWN",
+                "CURSOR_BENCH_DOWN",
+                "CURSOR_CROSS_HAIR",
+                "CURSOR_BIN_DOWN",
+                "CURSOR_LAMPPOST_DOWN",
+                "CURSOR_FENCE_DOWN",
+                "CURSOR_FLOWER_DOWN",
+                "CURSOR_PATH_DOWN",
+                "CURSOR_DIG_DOWN",
+                "CURSOR_WATER_DOWN",
+                "CURSOR_HOUSE_DOWN",
+                "CURSOR_VOLCANO_DOWN",
+                "CURSOR_WALK_DOWN",
+                "CURSOR_PAINT_DOWN",
+                "CURSOR_ENTRANCE_DOWN",
+                "CURSOR_HAND_OPEN",
+                "CURSOR_HAND_CLOSED",
+                "CURSOR_ARROW"
+            ],
+            "default": "CURSOR_STATUE_DOWN"
+        },
+        "price": {
+            "description": "The cost of building this object.",
+            "type": "integer"
+        },
+        "removalPrice": {
+            "description": "The cost of removing this object. This value is negative if the object gives a refund.",
+            "type": "integer"
+        },
+        "SMALL_SCENERY_FLAG_VOFFSET_CENTRE":  {
+            "description": "This flag should be true for any object that fills the entire tile. One of the effects of this is that if this object is above flower gardens, it blocks rain from watering them (and resetting their withering status). Also be aware that if true, the object is vertically offset upward by 12 pixels (or 14 pixels if `prohibitWalls` is also true). Not sure what this does otherwise. Object editor calls it \"Overlap\" and claims it has to do with drawing priority, especially for objects that extend all the way to the edge.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "prohibitWalls":  {
+            "description": "If true, no walls can be placed against this object on the same tile. If `SMALL_SCENERY_FLAG_VOFFSET_CENTRE` is also set, this object is offset upward vertically a total of 14 pixels.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "requiresFlatSurface":  {
+            "description": "If true, this object can only be built on flat ground.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "isRotatable":  {
+            "description": "When true, user can set rotation, otherwise rotation is automatic. This is usually used for foliage, for example.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "isAnimated":  {
+            "description": "If true, this object is animated. It may have an animation sequence defined by `frameOffsets`, or it may use one of the other special animation modes (`SMALL_SCENERY_FLAG_FOUNTAIN_SPRAY_1`, `SMALL_SCENERY_FLAG_FOUNTAIN_SPRAY_4`, `isClock`, or `SMALL_SCENERY_FLAG_SWAMP_GOO`). ",
+            "type": "boolean",
+            "default": "false"
+        },
+        "frameOffsets": {
+            "description": "For animated objects that don't use one of the special animation modes, this list (of frame indexes) makes up the animation sequence for this object. These are indexes into the list of images, starting at zero, where each index is for a set of 4 images (for the 4 angles).\n\nNote that, depending on `SMALL_SCENERY_FLAG_HAS_FRAME_OFFSETS` and `SMALL_SCENERY_FLAG17`, the first set of images may or may not be part of the animation sequence, so the indexes might not start until the second sequence.",
+            "type": "array",
+            "items": {
+                "type": "integer",
+                "minimum": 0
+            }
+        },
+        "numFrames": {
+            "description": "The number of frames specified for this animation. This is normally equal to the length of `frameOffsets`, and MUST not be longer than it. Note that this is not necessarily the length of the animation (see `animationMask`). It's also not necessarily the number of unique images used in the animation, since ",
+            "type": "integer",
+            "minimum": 0
+        },
+        "animationMask": {
+            "description": "A bitmask used to set when the animation loops. Calculate this by choosing the desired animation length as a power of 2 and then subtracting one. If this value is greater than numFrames-1, the animation will have an extra delay before repeating.\n\nFor example, if a smoothly looping animation is 16 frames long, this value should be 15.\n\nWhile it's possible to set this to a value other than a power of 2 minus 1, this will result in strange behavior, since this value is used as a bitmask, and not as a maximum.",
+            "type": "integer"
+        },
+        "animationDelay": {
+            "description": "Divides the animation speed in half this many times. For example, if this value was 1, 2, or 3, the animation would update every 2 ticks, every 4 ticks, or every 8 ticks, respectively. At normal speed, the game targets a rate of 40 ticks per second.",
+            "type": "integer"
+        },
+        "SMALL_SCENERY_FLAG_VISIBLE_WHEN_ZOOMED":  {
+            "description": "True for animated objects that continue to animate when zoomed out (do not set this on non-animated objects, or they WILL NOT SHOW UP AT ALL). When this is set for objects that use the normal animation mode with a list of `frameOffsets`, the first set of 4 images act only as preview images, and are not drawn when placed (if `hasOverlay` is set, the first frame of the animation will also be drawn on top, when previewing). The rest of the sets of images act as the actual animation frames that `frameOffsets` indexes into.\n\nFor objects that do not have this flag set, see `SMALL_SCENERY_FLAG17`.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "SMALL_SCENERY_FLAG17":  {
+            "description": "This is only used for animated objects that use the normal animation mode (i.e., with `frameOffsets`), and do not have `SMALL_SCENERY_FLAG_VISIBLE_WHEN_ZOOMED` set. Normally, the images for these objects contain _only_ the animation frames. This would mean that the first frame is always drawn (even when zoomed out, and for previewing), and then the animation is drawn on top of that. This would cause problems for some objects if that first frame isn't always completely covered. If this flag is true, this object instead has the first four images separated out as a base set of images, and the animation frames only start after that (just like objects with `SMALL_SCENERY_FLAG_VISIBLE_WHEN_ZOOMED` set). The only objects in the game that have this flag use blank images as the first four, and also have `hasOverlay` set so that the first frame of animation is still used for previewing (this also means that they disappear entirely when zoomed out, so I'm not sure why they don't just use `SMALL_SCENERY_FLAG_VISIBLE_WHEN_ZOOMED` instead. I guess Chris Sawyer _really_ _really_ did not want them animating when zoomed out, and didn't care/notice the consequences). In the end, this flag is probably not useful. It basically replicates `SMALL_SCENERY_FLAG_FOUNTAIN_SPRAY_1`, but you can set a custom frame sequence.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "SMALL_SCENERY_FLAG_COG":  {
+            "description": "True for frame-offset-animated objects whose animations should be synchronized across the entire map. Normally, the timing of these animations are offset depending on the tile the object is on, but this flag disables that behavior so the animations always play in-sync.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "SMALL_SCENERY_FLAG_FOUNTAIN_SPRAY_1":  {
+            "description": "True for objects that use the first special fountain animation mode. This requires four frames of animation (4 angles each) that are overlayed on top of the base images.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "SMALL_SCENERY_FLAG_FOUNTAIN_SPRAY_4":  {
+            "description": "True for objects that use the second special fountain animation mode. This requires nine extra sets of images (4 angles each) that are overlayed on top of the base images. The first set is a static overlay. The next four sets are a 4-frame animation that is overlayed on top of the base images, but underneath the static overlay. The next four sets are another 4-frame animation, that is overlayed on top of everything. So the layering order is the base set, the first 4-animation on top, then a static overlay on top of that, and then the second 4-frame animation on top.\n\nThe only vanilla object that uses this mode is the Cupid Fountains (TQF.DAT), and it allows the static centerpiece to be rendered separately, between the sets of animated fountains.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "isClock":  {
+            "description": "True for objects that use the second special animation mode for the clock (TCK.DAT). This requires a bunch of extra images. First is a static overlay (4 angles, with both hands pointing at 12) that's used just for previewing. After that is 60 images, which are 60 frames of the minute hand going around the clock, and then another 48 frames of the hour hand doing the same, all starting facing the upper right and continuing around, well, clockwise of course. (Note that these are not duplicated for all 4 angles, the game just offsets by the right amount to account for direction).\n\nThe game uses real-world time to figure out where to point the hands. Neat!",
+            "type": "boolean",
+            "default": "false"
+        },
+        "SMALL_SCENERY_FLAG_SWAMP_GOO":  {
+            "description": "True for objects that use the special animation mode for swamp goo (TSG.DAT). This is just a 16 frame animation from a single angle.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "hasOverlayImage":  {
+            "description": "If true, this object has an additional foreground image that is drawn over it when previewing. This is used for certain animated objects that may use a separate set of images on top of a static base. This uses the second set of 4 angles added after the first, and draws them on top when previewing.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "canWither":  {
+            "description": "If true, this object ages/withers over time (used for flower gardens). This requires two more sets of 4 angles, for the first and second level of aging.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "canBeWatered":  {
+            "description": "This is used in conjunction with `canWither` (again, intended for flower gardens). If true, staff members (who are told to water plants) will water this object. The aging/withering process will be reset whenever this happens. It will also be reset whenever it precipitates, unless it is blocked above by an object with `SMALL_SCENERY_FLAG_VOFFSET_CENTRE` set (i.e, full tiles).",
+            "type": "boolean",
+            "default": "false"
+        },
+        "hasGlass":  {
+            "description": "True for objects that have glass elements. Requires a second set of 4 angles for the glass itself. These images are just a mask and should be a flat color.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "hasPrimaryColour":  {
+            "description": "True for objects that have at least one remappable colors.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "hasSecondaryColour":  {
+            "description": "True for objects that have two remappable colors; `hasPrimaryColour` must also be set.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "isStackable": {
+            "description": "If true, this object can be placed in the air or above water (i.e., by holding shift).",
+            "type": "boolean",
+            "default": "false"
+        },
+        "hasNoSupports": {
+            "description": "True for objects that don't have supports when they are placed in the air.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "allowSupportsAbove": {
+            "description": "If true, supports from other objects will be built on top of this one.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "supportsHavePrimaryColour": {
+            "description": "If true, the supports for this item will be painted the primary color as well. This is very useful for objects that are themselves support structures.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "SMALL_SCENERY_FLAG27": {
+            "description": "A quarter-tile object with this flag set will block supports in the same way that a full-tile object would. Only Pole (SUPPLEG1.DAT) has this flag enabled in RCT2.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "isTree": {
+            "description": "Obviously, this flag is true for trees. This is used in scenarios where tree removal is forbidden. This flag was not explicitly present in vanilla RCT2. Instead, all small scenery objects above a certain height (64) were considered trees. OpenRCT2 uses this behavior when loading DAT objects.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "shape": {
+            "description": "The shape of this object. Only need to set this if it is not a pure quarter tile. Add \"+D\" if it is diagonal (if it is just diagonal, and not 3/4 or full, put \"1/4+D\".",
+            "type": "string",
+            "enum": ["2/4", "3/4", "4/4", "3/4+D", "4/4+D", "1/4+D"]
+        },
+        "sceneryGroup": {
+            "description": "OpenRCT2 `id` of the primary scenery group this object should be included in.",
+            "type": "string"
+        },
+        "renderAs": {
+            "description": "This determines the function for which type of path item this object will be rendered using. This might eventually be merged with the flags for the type of path item? This field affects the rendering, while the flags affect game logic. Either way, they should probably match.\n\nEven though the flags don't set the rendering mode, to save room here, I've placed the image information with the associated flag.",
+            "type": "string",
+            "default": "lamp",
+            "enum": ["lamp", "bin", "bench", "fountain"]
+        },
+        "isBin": {
+            "description": "If true, the game treats this object as a litter bin. Guests will put trash in it, staff will empty it. If this flag is true, `renderAs` should be set to `\"bin\"`.\n\nThe image sequence for litter bins is:\nPreview image\n4 angles normal\n4 angles broken (these can be blank if `isBreakable` isn't set)\n4 angles full",
+            "type": "boolean",
+            "default": "false"
+        },
+        "isBench": {
+            "description": "If true, guests will treat this object as a bench. If this flag is true, `renderAs` should be set to `\"bench\"`.\n\nThe image sequence for benches is:\nPreview image\n4 angles normal\n4 angles broken (these can be probably be left out entirely if `isBreakable` isn't set)",
+            "type": "boolean",
+            "default": "false"
+        },
+        "isBreakable": {
+            "description": "If true, guests in a rage will seek out and break this path item. If `renderAs` is `\"lamp\"`, `\"bin\"`, or `\"bench\"`, the second set of 4 angles will be used when this item is broken.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "isLamp": {
+            "description": "If true, the game allows this path item to be stay on paths when they are converted into queues. They can only be placed directly on queues if `isAllowedOnQueue` is true. If this flag is true, `renderAs` should be set to `\"lamp\"`.\n\nThe image sequence for lamps is:\nPreview image\n4 angles normal\n4 angles broken (these can be left out entirely if `isBreakable` isn't set)",
+            "type": "boolean",
+            "default": "false"
+        },
+        "isJumpingFountainWater": {
+            "description": "If true, the game will render animated jumping water across the tile this item is placed on. `renderAs` should probably be set to \"fountain\". The image sequence for jumping fountains is:\nPreview image\n4 angles (just one \"spout\", this will be copied into all 4 corners).",
+            "type": "boolean",
+            "default": "false"
+        },
+        "isJumpingFountainSnow": {
+            "description": "If true, the game will render animated jumping snowballs across the tile this item is placed on. `renderAs` should probably be set to \"fountain\", and if so, it's the same images as a jumping water fountain.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "isAllowedOnQueue": {
+            "description": "If true, the game allows this path item to be placed directly on queues. If it is placed on a regular path that it converted into a queue, it will be removed unless `isLamp` or `isTelevision` is true. idk I didn't program this",
+            "type": "boolean",
+            "default": "false"
+        },
+        "isAllowedOnSlope": {
+            "description": "If true, this item can be placed on sloped paths.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "isTelevision": {
+            "description": "If true, this item will prevent guests in this queue from losing happiness when waiting a long time.\n\nAdditionally, the game does not allow this item to be placed on regular paths, and will remove it when a queue line is converted to a regular path. `isAllowedOnQueue` must be set in order for these to be built in the first place.\n\nIf this flag is true, `renderAs` should be set to `\"lamp\"`. Queue TVs have the same image sequence as lamps (with no broken images, since items in queues can never be broken).",
+            "type": "boolean",
+            "default": "false"
+        },
+        "isAnimatedLarge": {
+            "description": "",
+            "type": "boolean",
+            "default": "false"
+        },
+        "isPhotogenic": {
+            "description": "If true, guests will watch/photograph this object.",
+            "type": "boolean",
+            "default": "false"
+        },
+        "tiles": {
+            "description": "A list of tile descriptions for all the tiles making up this large scenery object. These can technically be listed in any order. The images for a normal large scenery object are the 4 preview images, and then each set of 4 images for all the tiles, in the order listed here.",
+            "type": "array",
+            "items": {
+                "description": "A description of one of the tiles making up this large scenery object",
+                "type": "object",
+                "properties": {
+                    "x": {
+                        "description": "The x offset for this tile. X and Y offsets are (always?) in multiples of 32, since that's one full surface tile. When looking southeast (the direction that comes first in the images), `(0,0)` is in the very back. Positive-x goes to the left (and down/towards the camera), and positive-y goes to the right (and down/towards the camera).",
+                        "type": "integer",
+                        "default": "0"
+                    },
+                    "y": {
+                        "description": "The y offset for this tile. X and Y offsets are (always?) in multiples of 32, since that's one full surface tile. When looking southeast (the direction that comes first in the images), `(0,0)` is in the very back. Positive-x goes to the left (and down/towards the camera), and positive-y goes to the right (and down/towards the camera).",
+                        "type": "integer",
+                        "default": "0"
+                    },
+                    "z": {
+                        "description": "The vertical offset for this tile. 0 is in line with the bottom of this object, but higher values can accomplish things like the hollow pyramid, or other cases where different tiles take up different vertical spaces. Each height step in the game is 8 units high (I think this is equal to 4 pixels).",
+                        "type": "integer",
+                        "default": "0"
+                    },
+                    "clearance": {
+                        "description": "The vertical height of this tile. This is added to the `z` offset to get the total height of the top of this tile, relative to the full object. Each height step in the game is 8 units high (I think this is equal to 4 pixels).",
+                        "type": "integer",
+                        "default": "0"
+                    },
+                    "hasSupports": {
+                        "description": "True for tiles that have supports when they are located in the air.",
+                        "type": "boolean",
+                        "default": "false" 
+                    },
+                    "allowSupportsAbove": {
+                        "$ref": "#/definitions/allowSupportsAbove"
+                    },
+                    "corners": {
+                        "description": "This is a bitmask of the corners occupied by this tile.",
+                        "type": "integer",
+                        "default": "15"
+                    },
+                    "walls": {
+                        "description": "This is a bitmask of the walls occupied by this tile.",
+                        "type": "integer",
+                        "default": "0"
+                    }
+                }
+            }
+        },
+        "3dFont": {
+            "description": "For large scenery objects that are 3D fonts, a description of the font.",
+            "type": "object",
+            "properties": {
+                "offsets": {
+                    "description": "A list of the relative x and y offset for this font when facing left and then right.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "x": {
+                                "description": "Relative x-offset",
+                                "type": "integer",
+                                "default": 0
+                            },
+                            "y": {
+                                "description": "Relative y-offset",
+                                "type": "integer",
+                                "default": 0
+                            }
+                        }
+                    }
+                },
+                "maxWidth": {
+                    "description": "In pixels, the maximum length of a line of text that will fit onto a large sign using this font. I'm not sure why these are stored in the 3D font object, since the signs themselves aren't specified here, and changing the font wouldn't have any affect on the size of the sign.\n\nRegardless, this value is 62 for horizontal signs, and 142 (which is the maxHeight, really) for vertical signs.",
+                    "type": "integer",
+                    "default": 0
+                },
+                "numImages": {
+                    "description": "The number of unique image (sets) actually stored in this object. If `isVertical` is true, there are two images for each set (facing left and then facing right). Otherwise (for horizontal signs) there are 4. (left and right, and then again, offset 1/2 pixel down to deal with aliasing or something).",
+                    "type": "integer",
+                    "default": 0
+                },
+                "isVertical": {
+                    "description": "If true, this font is rendered on a large vertical sign. Otherwise, it's used on a horizontal signs.",
+                    "type": "boolean",
+                    "default": false
+                },
+                "isTwoLine": {
+                    "description": "Assuming `isVertical` is false, this flag controls whether this font is rendered on a one-line or two-line horizontal sign.",
+                    "type": "boolean",
+                    "default": false
+                },
+                "glyphs": {
+                    "description": "A list of the 256 glyphs making up this 3D font, mapping to the first 256 UTF-8 codepoints. For reference, that's the 128 the ASCII codepoints, followed by the 128 Latin-1 Supplement codepoints.",
+                    "type": "array",
+                    "items": {
+                        "description": "A description of one of the tiles making up this large scenery object",
+                        "type": "object",
+                        "properties": {
+                            "image": {
+                                "description": "The index of the image (set) to use for this glyph. For vertical signs, there are two images for each set (facing left and then facing right). For horizontal signs there are 4. (left and right, and then again, offset 1/2 pixel down to deal with aliasing or something).",
+                                "type": "integer",
+                                "default": "0"
+                            },
+                            "width": {
+                                "description": "Width of the glyph, when displayed",
+                                "type": "integer",
+                                "default": "0"
+                            },
+                            "height": {
+                                "description": "Height of the glyph, when displayed",
+                                "type": "integer",
+                                "default": "0"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
