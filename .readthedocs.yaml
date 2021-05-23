@@ -12,6 +12,4 @@ sphinx:
 python:
   version: 3.7
   install:
-    - method: pip
-      path: sphinx-jsonschema
-  system_packages: true
+    - requirements: docs/requirements.txt
